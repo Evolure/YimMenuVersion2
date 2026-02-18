@@ -90,6 +90,7 @@ namespace YimMenu::Submenus
 		Misc_business->AddItem(std::make_shared<CommandItem>("smokewater"_J));
 		Misc_business->AddItem(std::make_shared<CommandItem>("helitours"_J));
 		Misc_business->AddItem(std::make_shared<CommandItem>("salvageyard"_J));
+		Misc_business->AddItem(std::make_shared<CommandItem>("auto_source"_J));
 
 		casinoSlots->AddItem(std::make_shared<BoolCommandItem>("casinomanipulaterigslotmachines"_J));
 
