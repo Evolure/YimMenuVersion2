@@ -15,6 +15,8 @@ namespace YimMenu::Submenus
 	{
 		auto misc = std::make_unique<Category>("Misc");
 
+		misc->AddItem(std::make_shared<CommandItem>("closegtav"_J));
+		
 		misc->AddItem(std::make_unique<ImGuiItem>([] {
 			if (ImGui::Button("Network Bail"))
 			{
