@@ -6,7 +6,6 @@
 #include "core/backend/FiberPool.hpp"
 #include <algorithm>
 
-
 namespace YimMenu::Features
 {
 	static IntCommand LSCarMeetRankSlider{
