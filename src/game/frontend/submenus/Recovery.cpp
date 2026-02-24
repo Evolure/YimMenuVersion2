@@ -26,6 +26,8 @@ namespace YimMenu::Submenus
 		auto Safehouseinhills = std::make_shared<Group>(" Safehouse in the Hills");
 
 		auto generalGroup = std::make_shared<Group>("General");
+		auto LSCMGroupe = std::make_shared<Group>("LS Car Meet");
+
 		auto gunvanGroup = std::make_shared<Group>("Gun Van");
 		auto businessGroup = std::make_shared<Group>("Business");
 		auto Bailloffice = std::make_shared<Group>("Bail Office");
@@ -45,8 +47,6 @@ namespace YimMenu::Submenus
 		generalGroup->AddItem(std::make_shared<CommandItem>("maxskills"_J));
 		generalGroup->AddItem(std::make_shared<IntCommandItem>("rpslider"_J, "Character Level"));
 		generalGroup->AddItem(std::make_shared<CommandItem>("applyrp"_J));
-		generalGroup->AddItem(std::make_shared<IntCommandItem>("lscarmeetrank"_J, "LS Car Meet Rank"));
-		generalGroup->AddItem(std::make_shared<CommandItem>("applylscarmeetrank"_J));
 		generalGroup->AddItem(std::make_shared<CommandItem>("bunkerlaptop"_J));
 		generalGroup->AddItem(std::make_shared<CommandItem>("Rockstar_dev_tshirt"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("freechangeappearance"_J));
@@ -54,6 +54,13 @@ namespace YimMenu::Submenus
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("allowgenderchange"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("peddropcash"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("vehicledropcash"_J));
+
+
+		LSCMGroupe->AddItem(std::make_shared<IntCommandItem>("lscarmeetrank"_J, "LS Car Meet Rank"));
+		LSCMGroupe->AddItem(std::make_shared<CommandItem>("applylscarmeetrank"_J));
+		LSCMGroupe->AddItem(std::make_shared<CommandItem>("Complete_Challenge"_J));
+		LSCMGroupe->AddItem(std::make_shared<CommandItem>("tp_lscm"_J));
+		
 
 		gunvanGroup->AddItem(std::make_shared<ListCommandItem>("gunvanslot"_J));
 		gunvanGroup->AddItem(std::make_shared<ListCommandItem>("gunvanweapon"_J));
@@ -150,6 +157,7 @@ namespace YimMenu::Submenus
 		cooldown->AddItem(std::make_shared<CommandItem>("Reset_vehicle_Delivery_cd"_J));
 
 		main->AddItem(generalGroup);
+		main->AddItem(LSCMGroupe);
 		main->AddItem(gunvanGroup);
 		main->AddItem(requestServices);
 		main->AddItem(missions);
