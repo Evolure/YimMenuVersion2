@@ -42,6 +42,7 @@ namespace YimMenu::Features
 		{
 			Stats::SetBool("MPX_CARMEET_PV_CHLLGE_CMPLT", true);
 			Stats::SetBool("MPX_CARMEET_PV_CLMED", false);
+			STATS::STAT_SAVE(0, 0, 3, 0);
 			Notifications::Show("YimMenuV2", "Done. If you are in LSCM, re-enter to collect the prize.", NotificationType::Success);
 		}
 	};
