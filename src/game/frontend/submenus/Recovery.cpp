@@ -164,7 +164,6 @@ namespace YimMenu::Submenus
 		main->AddItem(achievements);
 		main->AddItem(cooldown);
 
-
 		businesses->AddItem(businessGroup);
 		businesses->AddItem(Bailloffice);
 		businesses->AddItem(Misc_business);
