@@ -33,7 +33,7 @@ namespace YimMenu::Features
 	    "applylscarmeetrank",
 	    "Apply LS Car Meet Rank",
 	    "Applies the selected LS Car Meet rank."};
-	//Loaction Needs Changed 
+	//Location Needs Changed 
 	class Complete_Challenge : Command
 	{
 		using Command::Command;
