@@ -98,7 +98,8 @@ namespace YimMenu::Submenus
 		Misc_business->AddItem(std::make_shared<CommandItem>("helitours"_J));
 		Misc_business->AddItem(std::make_shared<CommandItem>("salvageyard"_J));
 		Misc_business->AddItem(std::make_shared<CommandItem>("auto_source"_J));
-
+		Misc_business->AddItem(std::make_shared<CommandItem>("fillvehwarehouse"_J));
+		
 		casinoSlots->AddItem(std::make_shared<BoolCommandItem>("casinomanipulaterigslotmachines"_J));
 
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallcareerprogress"_J));
