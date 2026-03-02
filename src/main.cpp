@@ -28,7 +28,6 @@
 #include "core/Update/Updater.hpp"
 #include "game/backend/CustomLabelText.hpp"
 #include "game/features/theme/theme.hpp"
-
 namespace YimMenu
 {
 	static std::filesystem::path InitProjectFolders()
