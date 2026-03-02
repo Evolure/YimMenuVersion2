@@ -24,6 +24,19 @@ namespace YimMenu::Features
 				Stats::SetInt("MPX_AWD_SUNBURNED", 20);
 				Stats::SetBool("MPX_AWD_TWOOFAKIND", TRUE);
 				Stats::SetInt("MPX_AWD_UNDEADPARTY", 100);
+				Stats::SetPackedBool(54711, true);
+				Stats::SetPackedInt(262145, 26702);
+				Stats::SetPackedBool(3595, true);
+				Stats::SetPackedBool(3594, true);
+				Stats::SetPackedBool(3596, true);
+				Stats::SetPackedBool(3597, true);
+				Stats::SetPackedBool(3598, true);
+				Stats::SetPackedBool(3599, true);
+				Stats::SetPackedBool(3604, true);
+				Stats::SetPackedBool(3605, true);
+				Stats::SetPackedBool(3606, true);
+				Stats::SetPackedBool(3607, true);
+				Stats::SetPackedBool(36689, 62); // Acid Production Boost (0/f = Reset)
 				STATS::STAT_SAVE(0, 0, 3, 0);
 			}
 		}
