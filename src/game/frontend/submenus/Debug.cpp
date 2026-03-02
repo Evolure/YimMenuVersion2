@@ -1,10 +1,10 @@
 #include "Debug.hpp"
-
 #include "Debug/Misc.hpp"
 #include "Debug/Globals.hpp"
 #include "Debug/Locals.hpp"
 #include "Debug/Scripts.hpp"
 #include "game/frontend/items/Items.hpp"
+#include "Debug/ScriptStarter.hpp"
 
 namespace YimMenu::Submenus
 {
@@ -16,5 +16,6 @@ namespace YimMenu::Submenus
 		AddCategory(BuildGlobalsMenu());
 		AddCategory(BuildLocalsMenu());
 		AddCategory(BuildScriptsMenu());
+		AddCategory(BuildScriptStarterMenu());
 	}
 }
