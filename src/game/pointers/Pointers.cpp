@@ -488,11 +488,6 @@ namespace YimMenu
 			m_frame_count = addr.Add(2).Rip().As<uint32_t*>();
 		});
 
-		static constexpr auto frameLimiterPtrn = Pattern<"48 29 FE 78">("FrameLimiter");
-		scanner.Add(frameLimiterPtrn, [this](PointerCalculator ptr) {
-			FrameLimiter_Patch = BytePatches::Add(ptr.Sub(4).As<std::uint8_t*>(), 0xFF);
-		});
-
 		static constexpr auto GameStatePtrn = Pattern<"83 3D ? ? ? ? ? 0F 85 ? ? ? ? BA ? 00">("GameState");
 		scanner.Add(GameStatePtrn, [this](PointerCalculator addr) {
 			m_game_state = addr.Add(2).Rip().Add(1).As<eGameState*>();
