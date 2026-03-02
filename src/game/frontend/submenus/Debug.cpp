@@ -12,6 +12,13 @@ namespace YimMenu::Submenus
 		#define ICON_FA_ARROW_RIGHT "\xef\x84\xa0"
 	    Submenu::Submenu("Debug", ICON_FA_ARROW_RIGHT)
 	{
+		auto main = std::make_shared<Category>("Main");
+		auto GeneralGroup = std::make_shared<Group>("General");
+
+		GeneralGroup->AddItem(std::make_shared<BoolCommandItem>("unlockfps"_J));
+
+		main->AddItem(GeneralGroup);
+		AddCategory(std::move(main));
 		AddCategory(BuildMiscMenu());
 		AddCategory(BuildGlobalsMenu());
 		AddCategory(BuildLocalsMenu());
