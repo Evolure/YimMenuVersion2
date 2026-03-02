@@ -166,7 +166,6 @@ namespace YimMenu
 		PVOID GetAnticheatInitializedHash2;
 		CAnticheatContext** AnticheatContext;
 		BytePatch AbilityBarPatch;
-		BytePatch FrameLimiter_Patch; // Patch for frame limiter
 		PVOID MatchmakingAdvertise;
 		PVOID MatchmakingUpdate;
 		PVOID MatchmakingUnadvertise;
