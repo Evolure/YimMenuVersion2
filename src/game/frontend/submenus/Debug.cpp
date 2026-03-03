@@ -5,7 +5,7 @@
 #include "Debug/Scripts.hpp"
 #include "game/frontend/items/Items.hpp"
 #include "Debug/ScriptStarter.hpp"
-
+#include "Debug/CutscenesStarter.hpp"
 namespace YimMenu::Submenus
 {
 	Debug::Debug() :
@@ -24,5 +24,6 @@ namespace YimMenu::Submenus
 		AddCategory(BuildLocalsMenu());
 		AddCategory(BuildScriptsMenu());
 		AddCategory(BuildScriptStarterMenu());
+		AddCategory(BuildCutscenesStarterMenu());
 	}
 }
