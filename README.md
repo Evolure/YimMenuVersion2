@@ -91,4 +91,4 @@ FSL stores account data locally. Removing it hides those saves.
 > **Problem:** GTA crashes or won't launch.
 
 **Fix:**  
-Delete this folder:
+Delete this folder in Appdata: FSL
