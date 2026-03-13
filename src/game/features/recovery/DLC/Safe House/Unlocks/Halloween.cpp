@@ -38,3 +38,29 @@ namespace YimMenu::Features
 	    "Unlock Halloween"};
 }
 
+namespace YimMenu::Features
+{
+	class EnableJackOLantern : public Command
+	{
+		using Command::Command;
+
+		void OnCall() override
+		{
+			if (*Pointers.IsSessionStarted)
+			{
+				FiberPool::Push([] {
+					*ScriptGlobal(262145).At(32517).As<int*>() = 1; // Enable Jack O' Lantern
+				});
+			}
+			else
+			{
+				Notifications::Show("YimMenuV2", "You must be online", NotificationType::Error);
+			}
+		}
+	};
+
+	static EnableJackOLantern _EnableJackOLantern{
+	    "enable_jack_o_latern",
+	    "Enable Jack O' Lantern",
+	    "Jack O' Lantern"};
+}
