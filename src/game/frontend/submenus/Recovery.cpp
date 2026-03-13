@@ -116,6 +116,7 @@ namespace YimMenu::Submenus
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("Collectibles_Unlocks"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("CompleteWSameCrewheist"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("New_Unlock"_J));
+		generalUnlocks->AddItem(std::make_shared<CommandItem>("enable_jack_o_latern"_J));
 		
 		skip->AddItem(std::make_shared<CommandItem>("SkipDrDreeContract"_J));
 		skip->AddItem(std::make_shared<CommandItem>("SkipJenetteTheMutette"_J));
