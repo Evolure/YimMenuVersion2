@@ -135,6 +135,48 @@ namespace YimMenu::Features
 			using Command::Command;
 
 			void OnCall() override
+		    {
+			    static int currentLevel = Stats::GetInt("MPX_CHAR_RANK_FM");
+			    int targetLevel = std::clamp(RPSlider.GetState(), 1, 8000);
+
+			    if (currentLevel == targetLevel)
+				    return;
+
+			    if (currentLevel < targetLevel)
+				    currentLevel++;
+			    else
+				    currentLevel--;
+
+			    int rp = LevelToRP(currentLevel);
+
+			    Stats::SetInt("MPX_CHAR_SET_RP_GIFT_ADMIN", rp);
+			    Network::LaunchJoinType(static_cast<Network::JoinType>(Network::JoinType::SOLO));
+		    }
+
+			//Old version
+		    /*void OnCall() override
+		    {
+			    int level = RPSlider.GetState();
+
+			    static int lastLevel = level;
+
+			    if (level > lastLevel)
+				    level = lastLevel + 1;
+			    else if (level < lastLevel)
+				    level = lastLevel - 1;
+
+			    lastLevel = level;
+
+			    level = std::clamp(level, 1, 8000);
+
+			    int rp = LevelToRP(level);
+
+			    Stats::SetInt("MPX_CHAR_SET_RP_GIFT_ADMIN", rp);
+			    Network::LaunchJoinType(static_cast<Network::JoinType>(Network::JoinType::SOLO));
+		    }*/
+
+			//older version
+			/*void OnCall() override
 			{
 				int level = std::clamp(RPSlider.GetState(), 1, 8000);
 				int rp = LevelToRP(level);
@@ -142,7 +184,7 @@ namespace YimMenu::Features
 				Stats::SetInt("MPX_CHAR_SET_RP_GIFT_ADMIN", rp);
 
 				Network::LaunchJoinType(static_cast<Network::JoinType>(Network::JoinType::SOLO));
-			}
+			}*/
 		};
 
 		static ApplyRP _ApplyRP{"applyrp", "Set Character Level", "Sets your wanted level to the desired level set in the slider."};
