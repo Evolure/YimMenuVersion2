@@ -162,6 +162,7 @@ namespace YimMenu::Submenus
 		instantfinish->AddItem(std::make_shared<CommandItem>("InstantSellBunkerStuff"_J));
 		instantfinish->AddItem(std::make_shared<CommandItem>("sellandbuyspecialcargo"_J));
 		instantfinish->AddItem(std::make_shared<CommandItem>("instantaircargosell"_J));
+		instantfinish->AddItem(std::make_shared<CommandItem>("mcbusinesssellmissions"_J));
 
 		main->AddItem(generalGroup);
 		main->AddItem(LSCMGroupe);
