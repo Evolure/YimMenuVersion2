@@ -100,3 +100,22 @@ namespace YimMenu::Features
 	};
 	static Instant_AirCargoInstantSell _Instant_AirCargoInstantSell{"instantaircargosell", "Air Cargo Instant-Sell (Air Mission Only!)", "air cargo instant sell"};
 }
+
+namespace YimMenu::Features
+{
+	class Instant_MCBusinessSellMissions : public Command
+	{
+		using Command::Command;
+
+		virtual void OnCall() override
+		{
+			*ScriptGlobal(262145).At(18451).As<int*>() = 1;
+			*ScriptGlobal(262145).At(18495).As<int*>() = 1;
+			*ScriptGlobal(262145).At(18497).As<int*>() = 0;
+			*ScriptGlobal(262145).At(18499).As<int*>() = 1;
+			*ScriptGlobal(262145).At(18501).As<int*>() = 0;
+			*ScriptGlobal(262145).At(18503).As<int*>() = 1;
+		}
+	};
+	static Instant_MCBusinessSellMissions _Instant_MCBusinessSellMissions{"mcbusinesssellmissions", "MC Business Sell Missions ", "mc business sell missions"};
+}
