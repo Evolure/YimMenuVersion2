@@ -110,4 +110,9 @@ namespace YimMenu::Stats
 	{
 		return STATS::GET_PACKED_STAT_INT_CODE(index, -1);
 	}
+
+	void SaveStats()
+	{
+		STATS::STAT_SAVE(0, 0, 3, 0);
+	}
 }
