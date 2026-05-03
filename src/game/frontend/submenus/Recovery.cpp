@@ -39,6 +39,10 @@ namespace YimMenu::Submenus
 		//auto casinoBlackJack = std::make_shared<Group>("Blackjack");
 		//auto casinoRoulette = std::make_shared<Group>("Roulette");
 
+		auto free = std::make_shared<Group>("Free");
+
+
+
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("playallmissionssolo"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("businessoverlay"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("unlockgtaplus"_J));
@@ -96,7 +100,6 @@ namespace YimMenu::Submenus
 		casinoSlots->AddItem(std::make_shared<BoolCommandItem>("casinomanipulaterigslotmachines"_J));
 
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallcareerprogress"_J));
-		generalUnlocks->AddItem(std::make_shared<CommandItem>("resetcareerprogress"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockalltattoos"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("BunkerUnlocks"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallAwards"_J));
@@ -111,6 +114,9 @@ namespace YimMenu::Submenus
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("CompleteWSameCrewheist"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("New_Unlock"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("enable_jack_o_latern"_J));
+		generalUnlocks->AddItem(std::make_shared<CommandItem>("Lester_services"_J));
+		generalUnlocks->AddItem(std::make_shared<CommandItem>("mk2_skins"_J));
+
 
 		skip->AddItem(std::make_shared<CommandItem>("SkipDrDreeContract"_J));
 		skip->AddItem(std::make_shared<CommandItem>("SkipJenetteTheMutette"_J));
@@ -148,14 +154,18 @@ namespace YimMenu::Submenus
 
 		achievements->AddItem(std::make_shared<CommandItem>("unlock_achievements"_J));
 
-		cooldown->AddItem(std::make_shared<CommandItem>("reset_casino_cd"_J));
-		cooldown->AddItem(std::make_shared<CommandItem>("reset_vehicle_sell_cd"_J));
-		cooldown->AddItem(std::make_shared<CommandItem>("Reset_vehicle_Delivery_cd"_J));
-
 		LSCMGroupe->AddItem(std::make_shared<IntCommandItem>("lscarmeetrank"_J, "LS Car Meet Rank"));
 		LSCMGroupe->AddItem(std::make_shared<CommandItem>("applylscarmeetrank"_J));
 		LSCMGroupe->AddItem(std::make_shared<CommandItem>("Complete_Challenge"_J));
 		LSCMGroupe->AddItem(std::make_shared<CommandItem>("tp_lscm"_J));
+
+
+		cooldown->AddItem(std::make_shared<CommandItem>("reset_casino_cd"_J));
+		cooldown->AddItem(std::make_shared<CommandItem>("reset_vehicle_sell_cd"_J));
+		cooldown->AddItem(std::make_shared<CommandItem>("Reset_vehicle_Delivery_cd"_J));
+
+		free->AddItem(std::make_shared<CommandItem>("FKarin_S95"_J));
+
 
 		instantfinish->AddItem(std::make_shared<CommandItem>("InstantFinishTowTruckServiceMission"_J));
 		instantfinish->AddItem(std::make_shared<CommandItem>("instantfinishvehiclerobberies"_J));
@@ -164,13 +174,16 @@ namespace YimMenu::Submenus
 		instantfinish->AddItem(std::make_shared<CommandItem>("instantaircargosell"_J));
 		instantfinish->AddItem(std::make_shared<CommandItem>("mcbusinesssellmissions"_J));
 
+
 		main->AddItem(generalGroup);
-		main->AddItem(LSCMGroupe);
 		main->AddItem(gunvanGroup);
 		main->AddItem(requestServices);
 		main->AddItem(missions);
 		main->AddItem(achievements);
+		main->AddItem(LSCMGroupe);
 		main->AddItem(cooldown);
+		main->AddItem(free);
+
 
 		businesses->AddItem(businessGroup);
 		businesses->AddItem(Bailloffice);

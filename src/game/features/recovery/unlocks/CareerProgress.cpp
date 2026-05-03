@@ -3,6 +3,9 @@
 #include "core/frontend/Notifications.hpp"
 #include "game/gta/Stats.hpp"
 #include "core/backend/ScriptMgr.hpp"
+#include "game/gta/data/Stats.h"
+
+
 
 namespace YimMenu::Features
 {
@@ -14,225 +17,409 @@ namespace YimMenu::Features
 		{
 			if (*Pointers.IsSessionStarted)
 			{
-				Stats::SetInt("MPX_PROG_HUB_KNOWAY_EARNINGS", 5000000);
-				Stats::SetPackedBool(54773, 54786);
-				Stats::SetPackedBool(54653, true);
-				Stats::SetInt("MPX_SB_CAR_WASH_OWNED", 1);
-				Stats::SetInt("MPX_SB_HELI_TOURS_OWNED", 1);
-				Stats::SetInt("MPX_SB_WEED_SHOP_OWNED", 1);
-				Stats::SetPackedBool(28313, 28318);
-				Stats::SetPackedInt(24928, 10);
-				Stats::SetInt("MPX_PROG_HUB_TYCOON25_EARNINGS", 2000000);
-				Stats::SetInt("MPX_PROG_HUB_CWASH_SAFEEARNINGS", 500000);
-				Stats::SetPackedBool(51278, 51280);
-				Stats::SetPackedBool(51285, 51297);
-				Stats::SetInt("MPX_PROG_HUB_MFH_EARNINGS", 5000000);
-				Stats::SetPackedBool(28272, 28287);
-				Stats::SetInt("MPX_PROG_HUB_CBR_EARNINGS", 5000000);
-				Stats::SetInt("MPX_SUM23_AVOP_PROGRESS", 4095);
-				Stats::SetInt("MPX_ULP_MISSION_PROGRESS", 16383);
-				Stats::SetInt("MPX_YACHT_MISSION_FLOW", 21845);
-				Stats::SetPackedBool(41507, 42022);
-				Stats::SetInt("MPX_HACKER_DEN_OWNED", 1);
-				Stats::SetPackedBool(9539, true);
-				Stats::SetPackedInt(24903, 25);
-				Stats::SetPackedInt(24904, 2);
-				Stats::SetInt("MPX_PROG_HUB_DEN24_SAFEEARNINGS", 100000);
-				Stats::SetInt("MPX_HACKER24_GEN_BS", 8160);
-				Stats::SetPackedBool(9549, true);
-				Stats::SetPackedBool(9542, 9546);
-				Stats::SetInt("MPX_BAIL_OFFICE_OWNED", 1);
-				Stats::SetPackedBool(9537, true);
-				Stats::SetPackedBool(7639, true);
-				Stats::SetPackedInt(7669, 5);
-				Stats::SetPackedInt(7672, 2);
-				Stats::SetInt("MPX_PROG_HUB_BOUNTY_EARNINGS", 5000000);
-				Stats::SetPackedInt(7670, 10);
-				Stats::SetPackedInt(7674, 3);
-				Stats::SetPackedInt(7671, 25);
-				Stats::SetInt("MPX_PROG_HUB_BOUNTIES_ALIVE_BS", -1);
-				Stats::SetInt("MPX_BAIL_PROPERTY_EARNINGS", 1000000);
-				Stats::SetInt("MPX_SALVAGE_YARD_OWNED", 1);
-				Stats::SetPackedBool(42037, 42038);
-				Stats::SetPackedBool(42041, 42042);
-				Stats::SetPackedBool(42044, 42051);
-				Stats::SetInt("MPX_PROG_HUB_SALV23_EARN_SALV", 2500000);
-				Stats::SetInt("MPX_PROG_HUB_SALV23_EARN_PERF", 5);
-				Stats::SetInt("MPX_PROG_HUB_SALV23_EARN_SELL", 10000000);
-				Stats::SetInt("MPX_XM22_MISSIONS_SA", -1);
-				Stats::SetInt("MPX_LFETIME_BIKER_BUY_COMPLET6", 100);
-				Stats::SetInt("MPX_XM22_FLOW", -1);
-				Stats::SetInt("MPX_LIFETIME_BKR_SELL_EARNINGS6", 10000000);
-				Stats::SetInt("MPX_LFETIME_BIKER_SELL_COMPLET6", 10);
-				Stats::SetPackedInt(41241, 5);
-				Stats::SetInt("MPX_PROG_HUB_LSDW_FJ_NO_DEATHS", 25);
-				Stats::SetInt("MPX_PROG_HUB_DAX_CLONE_KILLS", 100);
-				Stats::SetPackedBool(41660, 41670);
-				Stats::SetPackedBool(28257, true);
-				Stats::SetInt("MPX_FIXER_COUNT", 100);
-				Stats::SetInt("MPX_FIXER_GENERAL_BS", -1);
-				Stats::SetBool("MPX_AWD_PARTY_NIGHT", true);
-				Stats::SetBool("MPX_AWD_BILLIONAIRE_GAMES", true);
-				Stats::SetBool("MPX_AWD_HOOD_PASS", true);
-				Stats::SetInt("MPX_AWD_COLD_CALLER", 10);
-				Stats::SetInt("MPX_PROG_HUB_FXER_PAY_HIT_BONUS", 100);
-				Stats::SetBool("MPX_AWD_SHORTFRANK_1", true);
-				Stats::SetBool("MPX_AWD_SHORTFRANK_2", true);
-				Stats::SetBool("MPX_AWD_SHORTFRANK_3", true);
-				Stats::SetBool("MPX_AWD_SHORTLAMAR_1", true);
-				Stats::SetBool("MPX_AWD_SHORTLAMAR_2", true);
-				Stats::SetBool("MPX_AWD_SHORTLAMAR_3", true);
-				Stats::SetInt("MPX_PROG_HUB_FIXER_SEC_CON_SPEC", 100);
-				Stats::SetInt("MPX_FIXER_EARNINGS", 5000000);
-				Stats::SetPackedBool(22067, true);
-				Stats::SetInt("MPX_NIGHTCLUB_JOBS_DONE", 25);
-				Stats::SetInt("MPX_PROG_HUB_DANCE_DUR", 5);
-				Stats::SetPackedBool(15533, true);
-				Stats::SetPackedBool(22082, 22083);
-				Stats::SetPackedBool(36944, true);
-				Stats::SetPackedBool(41989, true);
-				Stats::SetInt("MPX_NIGHTCLUB_VIP_APPEAR", 25);
-				Stats::SetInt("MPX_PROG_HUB_NCLUB_POP_MAX_TME", 600);
-				Stats::SetInt("MPX_HUB_EARNINGS", 50000000);
-				Stats::SetPackedBool(15966, true);
-				Stats::SetInt("MPX_LFETIME_HANGAR_BUY_COMPLET", 100);
-				Stats::SetPackedBool(41676, true);
-				Stats::SetInt("MPX_LFETIME_HANGAR_SEL_COMPLET", 1);
-				Stats::SetPackedBool(41987, true);
-				Stats::SetInt("MPX_PROG_HUB_SMUGGLER_CRATES", 1000);
-				Stats::SetPackedBool(36924, 36938);
-				Stats::SetInt("MPX_LFETIME_HANGAR_EARNINGS", 50000000);
-				Stats::SetInt("MPX_FACTORYSETUP5", 1);
-				Stats::SetInt("MPX_LFETIME_BIKER_BUY_COMPLET5", 2);
-				Stats::SetPackedInt(9359, 25);
-				Stats::SetPackedBool(36870, 36917);
-				Stats::SetInt("MPX_WVM_FLOW_BITSET_MISSIONS0", 1);
-				Stats::SetInt("MPX_LIFETIME_BKR_SEL_COMPLETBC5", 1);
-				Stats::SetInt("MPX_LFETIME_BIKER_SELL_COMPLET5", 1);
-				Stats::SetInt("MPX_SR_WEAPON_BIT_SET", -1);
-				Stats::SetInt("MPX_LFETIME_BIKER_BUY_COMPLET5", 25);
-				Stats::SetPackedBool(42002, 42013);
-				Stats::SetPackedBool(36831, 36865);
-				Stats::SetInt("MPX_LIFETIME_BKR_SELL_EARNINGS5", 25000000);
-				Stats::SetInt("MPX_OWNED_IE_WAREHOUSE", 1);
-				Stats::SetInt("MPX_LFETIME_IE_EXPORT_COMPLETED", 25);
-				Stats::SetPackedBool(42029, 42036);
-				Stats::SetPackedBool(41874, 41883);
-				Stats::SetInt("MPX_PROG_HUB_VEH_CARGO_SELL_PER", 50);
-				Stats::SetInt("MPX_PROG_HUB_VEH_CARGO_SPECIAL", 5);
-				Stats::SetPackedBool(41988, true);
-				Stats::SetInt("MPX_LFETIME_IE_MISSION_EARNINGS", 25000000);
-				Stats::SetInt("MPX_LIFETIME_BKR_SELL_COMPLETBC", 1);
-				Stats::SetInt("MPX_LIFETIME_BKR_SEL_COMPLETBC1", 1);
-				Stats::SetInt("MPX_LIFETIME_BKR_SEL_COMPLETBC2", 1);
-				Stats::SetInt("MPX_LIFETIME_BKR_SEL_COMPLETBC3", 1);
-				Stats::SetInt("MPX_LIFETIME_BKR_SEL_COMPLETBC4", 1);
-				Stats::SetInt("MPX_BAR_RESUPPLY_CR", 10);
-				Stats::SetInt("MPX_LIFETIME_BKR_SELL_EARNINGS0", 25000000);
-				Stats::SetInt("MPX_PROG_HUB_BIK_CUST_DEL_CASH", 2500000);
-				Stats::SetInt("MPX_PROG_HUB_CLBH_BAR_EARNINGS", 500000);
-				Stats::SetInt("MPX_PROG_HUB_BIK_CONTRACT_COUNT", 50);
-				Stats::SetPackedBool(7553, 7592);
-				Stats::SetInt("MPX_WARHOUSESLOT0", 1);
-				Stats::SetInt("MPX_LIFETIME_BUY_COMPLETE", 1);
-				Stats::SetInt("MPX_PROG_HUB_FAIFAF_CRATES_COL", 250);
-				Stats::SetInt("MPX_LIFETIME_CONTRA_EARNINGS", 50000000);
-				Stats::SetInt("MPX_CAR_CLUB_MEMBERSHIP", 1);
-				Stats::SetPackedBool(31737, true);
-				Stats::SetPackedBool(31753, true);
-				Stats::SetBool("MPX_AWD_PRO_CAR_EXPORT", true);
-				Stats::SetInt("MPX_TUNER_COMP_BS", 255);
-				Stats::SetInt("MPX_AWD_AUTO_SHOP", 10);
-				Stats::SetInt("MPX_AWD_CAR_CLUB_MEM", 100);
-				Stats::SetPackedBool(32397, 32399);
-				Stats::SetInt("MPX_TUNER_COUNT", 25);
-				Stats::SetInt("MPX_PROG_HUB_TUNER_CUS_DEL_CASH", 5000000);
-				Stats::SetPackedBool(27089, 27090);
-				Stats::SetInt("MPX_VCM_FLOW_PROGRESS", -1);
-				Stats::SetInt("MPX_AWD_ODD_JOBS", 100);
-				Stats::SetPackedBool(30309, true);
-				Stats::SetPackedBool(30522, true);
-				Stats::SetInt("MPX_H4_MISSIONS", -1);
-				Stats::SetInt("MPX_H4_PROGRESS", -1);
-				Stats::SetInt("MPX_H4_H4_DJ_MISSIONS", 127);
-				Stats::SetInt("MPX_AWD_TREASURE_HUNTER", 10);
-				Stats::SetInt("MPX_PROG_HUB_CAYO_PRP_NO_DEATHS", 25);
-				Stats::SetInt("MPX_CR_SUBMARINE", 1);
-				Stats::SetInt("MPX_CR_STRATEGIC_BOMBER", 1);
-				Stats::SetInt("MPX_CR_SMUGGLER_PLANE", 1);
-				Stats::SetInt("MPX_CR_STEALTH_HELI", 1);
-				Stats::SetInt("MPX_CR_PATROL_BOAT", 1);
-				Stats::SetInt("MPX_CR_SMUGGLER_BOAT", 1);
-				Stats::SetInt("MPX_PROG_HUB_CAYO_H_EARNINGS", 50000000);
-				Stats::SetInt("MPX_CAS_HEIST_FLOW", -1);
-				Stats::SetPackedBool(28270, true);
-				Stats::SetPackedBool(36842, true);
-				Stats::SetInt("MPX_AWD_PREPARATION", 25);
-				Stats::SetBool("MPX_AWD_CREWEDUP", true);
-				Stats::SetPackedBool(42025, true);
-				Stats::SetInt("MPX_PROG_HUB_CASINO_H_EARNINGS", 50000000);
-				Stats::SetInt("MPX_AWD_DAICASHCRAB", 100000);
-				Stats::SetPackedBool(18139, true);
-				Stats::SetPackedBool(36861, true);
-				Stats::SetInt("MPX_GANGOPS_FLOW_BITSET_MISS0", -1);
-				Stats::SetPackedBool(41712, 41714);
-				Stats::SetInt("MPX_PROG_HUB_DOOM_PRP_NO_DEATHS", 14);
-				Stats::SetInt("MPX_PROG_HUB_DOOMSDAY_ACTS", 15);
-				Stats::SetPackedBool(36867, 36868);
-				Stats::SetPackedBool(41715, 41719);
-				Stats::SetPackedInt(42100, 5);
-				Stats::SetInt("MPX_PROG_HUB_HEIST_EARNINGS", 50000000);
-				Stats::SetPackedBool(25009, true);
-				Stats::SetPackedInt(22063, 20);
-				Stats::SetInt("MPX_ARENAWARS_AP_TIER", 50);
-				Stats::SetPackedInt(42000, 20);
-				Stats::SetPackedBool(51339, true);
-				Stats::SetPackedBool(36840, true);
-				Stats::SetInt("MPX_PROG_HUB_ADV_WINS", 50);
-				Stats::SetInt("MPX_PROG_HUB_SURVIVALS_PLAYED", 1);
-				Stats::SetInt("MPX_PROG_HUB_SURV_WAVES", 50);
-				Stats::SetInt("MPX_AWD_FMHORDWAVESSURVIVE", 10);
-				Stats::SetPackedBool(41331, 41506);
-				Stats::SetInt("MPX_PROG_HUB_SURV_WAVES", 250);
-				Stats::SetPackedBool(42023, true);
-				Stats::SetInt("MPX_RACES_WON", 50);
-				Stats::SetInt("MPX_PROG_HUB_T_TRIAL_PAR_TIME", -1);
-				Stats::SetInt("MPX_PROG_HUB_T_TRL_PAR_TIME_RC", -1);
-				Stats::SetInt("MPX_PROG_HUB_T_TRL_PAR_TIME_HSW", -1);
-				Stats::SetInt("MPX_PROG_HUB_T_TRL_PAR_TIME_BKE", -1);
-				Stats::SetPackedInt(41246, 20);
-				Stats::SetInt("MPX_PROG_HUB_FST_LPS_RSTAR_RAC", 50);
-				Stats::SetInt("MPX_DM_END", 1);
-				Stats::SetInt("MPX_PROG_HUB_DM_TDM_PLAYS", 1);
-				Stats::SetInt("MPX_AWD_FM_DM_WINS", 50);
-				Stats::SetInt("MPX_PROG_HUB_DM_COMMUNITY_PLAYS", 10);
-				Stats::SetInt("MPX_PROG_HUB_DTHM_KILL_5_WO_DIE", 25);
-				Stats::SetPackedBool(36922, true);
-				Stats::SetPackedInt(42092, 5);
-				Stats::SetInt("MPX_HUB_VEH_ENTH_OWNED_VEHS", 99);
-				Stats::SetInt("MPX_VEHICLES_CUSTOMISED", 50);
-				Stats::SetPackedBool(36920, 36922);
-				Stats::SetInt("MPX_PROG_HUB_WEAP_TYPE_ANSR", -1);
-				Stats::SetPackedInt(41242, 255);
-				Stats::SetPackedBool(36941, 36942);
-				Stats::SetInt("MPX_PROG_HUB_10_CHAL_ANSR", 10);
-				Stats::SetPackedBool(15456, 15460);
-				Stats::SetPackedInt(24929, 14);
-				Stats::SetPackedInt(24905, 9);
-				Stats::SetPackedInt(26809, 10);
-				Stats::SetPackedInt(51052, 10);
-				Stats::SetPackedInt(42084, 24);
-				Stats::SetPackedInt(42085, 10);
-				Stats::SetPackedInt(42089, 8);
-				Stats::SetPackedInt(30226, 10);
-				Stats::SetPackedInt(42093, 11);
-				Stats::SetPackedInt(42094, 15);
-				Stats::SetPackedInt(42086, 15);
-				Stats::SetPackedInt(42087, 10);
-				Stats::SetPackedInt(42090, 15);
-				Stats::SetPackedInt(42088, 15);
-				Stats::SetPackedInt(42091, 10);
-				ScriptMgr::Yield(5000ms);
+
+		// OSCAR GUZMAN FLIES AGAIN
+	    std::make_shared<PackedBoolStat>(51280),
+	    std::make_shared<PackedBoolStat>(51285),
+	    std::make_shared<PackedBoolStat>(51278),
+	    std::make_shared<PackedBoolRangeStat>(51286, 51291),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_MFH_EARNINGS", 5000000),
+	    std::make_shared<PackedBoolRangeStat>(51292, 51297),
+	    std::make_shared<PackedBoolStat>(51279),
+
+	    // THE CLUCKIN' BELL FARM RAID
+	    std::make_shared<PackedBoolStat>(28272),
+	    std::make_shared<PackedBoolStat>(28287),
+	    std::make_shared<PackedBoolStat>(28286),
+	    std::make_shared<PackedBoolStat>(28285),
+	    std::make_shared<PackedBoolRangeStat>(28283, 28284),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_CBR_EARNINGS", 5000000),
+	    std::make_shared<PackedBoolStat>(28282),
+	    std::make_shared<PackedBoolRangeStat>(28273, 28281),
+
+	    // SAN ANDREAS MERCENARIES
+	    std::make_shared<IntBitsStat>("MPX_SUM23_AVOP_PROGRESS", 0, 11),
+	    std::make_shared<PackedBoolStat>(41566),
+	    std::make_shared<PackedBoolStat>(41706),
+	    std::make_shared<PackedBoolRangeStat>(41567, 41572),
+	    std::make_shared<PackedBoolRangeStat>(41573, 41578),
+	    std::make_shared<PackedBoolRangeStat>(41579, 41584),
+	    std::make_shared<PackedBoolRangeStat>(41585, 41590),
+
+	    // OPERATION PAPER TRAIL
+	    std::make_shared<IntBitsStat>("MPX_ULP_MISSION_PROGRESS", 0, 13),
+	    std::make_shared<PackedBoolRangeStat>(41333, 41338),
+	    std::make_shared<PackedBoolStat>(41707),
+	    std::make_shared<PackedBoolRangeStat>(41339, 41344),
+	    std::make_shared<PackedBoolRangeStat>(41345, 41350),
+	    std::make_shared<PackedBoolRangeStat>(41351, 41356),
+	    std::make_shared<PackedBoolRangeStat>(41357, 41362),
+
+	    // A SUPERYATCH LIFE
+	    std::make_shared<IntBitsStat>("MPX_YACHT_MISSION_FLOW", 4, 15),
+	    std::make_shared<PackedBoolStat>(41379),
+	    std::make_shared<PackedBoolStat>(41708),
+	    std::make_shared<PackedBoolRangeStat>(41380, 41385),
+	    std::make_shared<PackedBoolRangeStat>(41386, 41391),
+	    std::make_shared<PackedBoolRangeStat>(41392, 41397),
+	    std::make_shared<PackedBoolRangeStat>(41398, 41403),
+
+	    // GERALD'S LAST PLAY
+	    std::make_shared<PackedBoolRangeStat>(41404, 41409),
+	    std::make_shared<PackedBoolStat>(41410),
+	    std::make_shared<PackedBoolStat>(41709),
+	    std::make_shared<PackedBoolRangeStat>(41411, 41416),
+	    std::make_shared<PackedBoolRangeStat>(41417, 41422),
+	    std::make_shared<PackedBoolRangeStat>(41423, 41428),
+	    std::make_shared<PackedBoolRangeStat>(41429, 41434),
+
+	    // PREMIUM DELUXE REPO WORK
+	    std::make_shared<PackedBoolRangeStat>(41436, 41443),
+	    std::make_shared<PackedBoolStat>(41435),
+	    std::make_shared<PackedBoolStat>(41705),
+	    std::make_shared<PackedBoolRangeStat>(41444, 41451),
+	    std::make_shared<PackedBoolRangeStat>(41452, 41459),
+	    std::make_shared<PackedBoolRangeStat>(41460, 41467),
+	    std::make_shared<PackedBoolRangeStat>(41468, 41475),
+
+	    // MADRAZO DISPATCH SERVICES
+	    std::make_shared<PackedBoolRangeStat>(41476, 41481),
+	    std::make_shared<PackedBoolStat>(41506),
+	    std::make_shared<PackedBoolStat>(41710),
+	    std::make_shared<PackedBoolRangeStat>(41482, 41487),
+	    std::make_shared<PackedBoolRangeStat>(41488, 41493),
+	    std::make_shared<PackedBoolRangeStat>(41494, 41499),
+	    std::make_shared<PackedBoolRangeStat>(41500, 41505),
+
+	    // LOWRIDERS
+	    std::make_shared<PackedBoolRangeStat>(42015, 42022),
+	    std::make_shared<PackedBoolStat>(41539),
+	    std::make_shared<PackedBoolStat>(41711),
+	    std::make_shared<PackedBoolRangeStat>(41507, 41514),
+	    std::make_shared<PackedBoolRangeStat>(41515, 41522),
+	    std::make_shared<PackedBoolRangeStat>(41523, 41530),
+	    std::make_shared<PackedBoolRangeStat>(41531, 41538),
+
+	    // AGENTS OF SABOTAGE
+	    // std::make_shared<IntStat>("MPX_HACKER_DEN_OWNED", 1),
+	    std::make_shared<PackedBoolStat>(9539),
+	    std::make_shared<PackedIntStat>(24903, 25),
+	    std::make_shared<PackedIntStat>(24904, 2),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_DEN24_SAFEEARNINGS", 100000),
+	    std::make_shared<IntBitsStat>("MPX_HACKER24_GEN_BS", 5, 12),
+	    std::make_shared<PackedBoolStat>(9549),
+	    std::make_shared<PackedBoolStat>(9542),
+	    std::make_shared<PackedIntStat>(24905, 9),
+	    std::make_shared<PackedBoolRangeStat>(9543, 9546),
+
+	    // BOTTOM DOLLAR BOUNTIES
+	    // std::make_shared<IntStat>("MPX_BAIL_OFFICE_OWNED", 1),
+	    std::make_shared<PackedBoolStat>(9537),
+	    std::make_shared<PackedBoolStat>(7639),
+	    std::make_shared<PackedIntStat>(7669, 5),
+	    std::make_shared<PackedIntStat>(7672, 2),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_BOUNTY_EARNINGS", 5000000),
+	    std::make_shared<PackedIntStat>(7670, 10),
+	    std::make_shared<PackedIntStat>(7674, 3),
+	    std::make_shared<PackedIntStat>(7671, 25),
+	    std::make_shared<PackedIntStat>(26809, 10),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_BOUNTIES_ALIVE_BS", -1),
+	    std::make_shared<IntStat>("MPX_BAIL_PROPERTY_EARNINGS", 1000000),
+
+	    // THE CHOP SHOP
+	    // std::make_shared<IntStat>("MPX_SALVAGE_YARD_OWNED", 1),
+	    std::make_shared<PackedBoolStat>(42038),
+	    std::make_shared<PackedBoolStat>(42041),
+	    std::make_shared<PackedBoolStat>(42044),
+	    std::make_shared<PackedBoolStat>(42045),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_SALV23_EARN_SALV", 2500000),
+	    std::make_shared<PackedBoolStat>(42042),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_SALV23_EARN_PERF", 5),
+	    std::make_shared<PackedBoolStat>(42046),
+	    std::make_shared<PackedIntStat>(51052, 10),
+	    std::make_shared<PackedBoolRangeStat>(42047, 42051),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_SALV23_EARN_SELL", 10000000),
+
+	    // LOS SANTOS DRUG WARS
+	    std::make_shared<IntBitsStat>("MPX_XM22_MISSIONS_SA", 0, 16),
+	    std::make_shared<IntBitsStat>("MPX_XM22_MISSIONS_SA", 6, 10),
+	    std::make_shared<IntBitsStat>("MPX_XM22_MISSIONS_SA", 17, 21),
+	    std::make_shared<PackedBoolStat>(42037),
+	    std::make_shared<IntStat>("MPX_LFETIME_BIKER_BUY_COMPLET6", 100),
+	    std::make_shared<IntBitsStat>("MPX_XM22_FLOW", 20, 24),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SELL_EARNINGS6", 10000000),
+	    std::make_shared<IntBitStat>("(MPX_XM22_FLOW", 0),
+	    std::make_shared<IntStat>("MPX_LFETIME_BIKER_SELL_COMPLET6", 10),
+	    std::make_shared<PackedIntStat>(41241, 5),
+	    std::make_shared<IntBitStat>("(MPX_XM22_MISSIONS_SA", 5),
+	    std::make_shared<IntBitStat>("(MPX_XM22_MISSIONS_SA", 10),
+	    std::make_shared<IntBitStat>("(MPX_XM22_MISSIONS_SA", 26),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_LSDW_FJ_NO_DEATHS", 25),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_DAX_CLONE_KILLS", 100),
+	    std::make_shared<PackedIntStat>(42084, 24),
+	    std::make_shared<PackedBoolRangeStat>(41660, 41670),
+
+	    // THE CONTRACT
+	    std::make_shared<PackedBoolStat>(28257),
+	    std::make_shared<IntStat>("MPX_FIXER_COUNT", 100),
+	    std::make_shared<IntBitStat>("(MPX_FIXER_GENERAL_BS", 0),
+	    std::make_shared<IntBitStat>("(MPX_FIXER_GENERAL_BS", 2),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_FXER_PAY_HIT_BONUS", 100),
+	    std::make_shared<PackedIntStat>(42085, 10),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_FIXER_SEC_CON_SPEC", 100),
+	    std::make_shared<IntStat>("MPX_FIXER_EARNINGS", 5000000),
+
+	    // AFTER HOURS
+	    std::make_shared<PackedBoolStat>(22067),
+	    std::make_shared<IntStat>("MPX_NIGHTCLUB_JOBS_DONE", 25),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_DANCE_DUR", 5),
+	    std::make_shared<PackedBoolStat>(15533),
+	    std::make_shared<PackedBoolRangeStat>(22082, 22083),
+	    std::make_shared<PackedBoolStat>(36868),
+	    std::make_shared<PackedBoolStat>(36944),
+	    std::make_shared<PackedBoolStat>(41989),
+	    std::make_shared<PackedIntStat>(42089, 8),
+	    std::make_shared<IntStat>("MPX_NIGHTCLUB_VIP_APPEAR", 25),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_NCLUB_POP_MAX_TME", 600),
+	    std::make_shared<IntStat>("MPX_HUB_EARNINGS", 50000000),
+
+	    // SMUGGLER'S RUN
+	    std::make_shared<PackedBoolStat>(15966),
+	    std::make_shared<IntStat>("MPX_LFETIME_HANGAR_BUY_COMPLET", 100),
+	    std::make_shared<PackedBoolStat>(41676),
+	    std::make_shared<PackedBoolStat>(32398),
+	    std::make_shared<IntStat>("MPX_LFETIME_HANGAR_SEL_COMPLET", 1),
+	    std::make_shared<PackedBoolStat>(41987),
+	    std::make_shared<PackedBoolStat>(36924),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_SMUGGLER_CRATES", 1000),
+	    std::make_shared<PackedBoolRangeStat>(36925, 36932),
+	    std::make_shared<IntStat>("MPX_LFETIME_HANGAR_EARNINGS", 50000000),
+
+	    // GUNRUNNING
+	    // std::make_shared<IntStat>("MPX_FACTORYSETUP5", 1),
+	    std::make_shared<IntStat>("MPX_LFETIME_BIKER_BUY_COMPLET5", 25),
+	    std::make_shared<PackedIntStat>(9359, 25),
+	    std::make_shared<PackedBoolStat>(36870),
+	    std::make_shared<IntStat>("MPX_WVM_FLOW_BITSET_MISSIONS0", -1),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SEL_COMPLETBC5", 1),
+	    std::make_shared<IntStat>("MPX_LFETIME_BIKER_SELL_COMPLET5", 1),
+	    std::make_shared<IntBitsStat>("MPX_SR_WEAPON_BIT_SET", 1, 17),
+	    std::make_shared<PackedBoolRangeStat>(42002, 42013),
+	    std::make_shared<PackedBoolRangeStat>(36831, 36838),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SELL_EARNINGS5", 25000000),
+
+	    // IMPORT / EXPORT
+	    // std::make_shared<IntStat>("MPX_OWNED_IE_WAREHOUSE", 1),
+	    std::make_shared<IntStat>("MPX_LFETIME_IE_EXPORT_COMPLETED", 25),
+	    std::make_shared<PackedBoolRangeStat>(42029, 42036),
+	    std::make_shared<PackedBoolRangeStat>(41874, 41883),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_VEH_CARGO_SELL_PER", 50),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_VEH_CARGO_SPECIAL", 5),
+	    std::make_shared<PackedBoolStat>(41988),
+	    std::make_shared<PackedBoolRangeStat>(41540, 41547),
+	    std::make_shared<IntStat>("MPX_LFETIME_IE_MISSION_EARNINGS", 25000000),
+
+	    // BIKERS
+	    std::make_shared<PackedBoolStat>(36871),
+	    std::make_shared<PackedBoolStat>(36872),
+	    std::make_shared<PackedBoolRangeStat>(36875, 36887),
+	    std::make_shared<PackedBoolStat>(36873),
+	    std::make_shared<PackedBoolStat>(42001),
+	    std::make_shared<PackedBoolStat>(36874),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SELL_COMPLETBC", 1),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SEL_COMPLETBC1", 1),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SEL_COMPLETBC2", 1),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SEL_COMPLETBC3", 1),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SEL_COMPLETBC4", 1),
+	    std::make_shared<IntStat>("MPX_BAR_RESUPPLY_CR", 10),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BKR_SELL_EARNINGS0", 25000000),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_BIK_CUST_DEL_CASH", 2500000),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_CLBH_BAR_EARNINGS", 500000),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_BIK_CONTRACT_COUNT", 50),
+
+	    // FURTHER ADVENTURES IN FINANCE AND FELONY
+	    std::make_shared<PackedBoolStat>(36888),
+	    std::make_shared<PackedBoolStat>(36889),
+	    std::make_shared<PackedBoolRangeStat>(36892, 36915),
+	    std::make_shared<PackedBoolStat>(36890),
+	    std::make_shared<IntStat>("MPX_WARHOUSESLOT0", 1),
+	    std::make_shared<IntStat>("MPX_LIFETIME_BUY_COMPLETE", 1),
+	    std::make_shared<PackedBoolRangeStat>(7559, 7553),
+	    std::make_shared<PackedBoolStat>(36891),
+	    std::make_shared<PackedBoolRangeStat>(36860, 36865),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_FAIFAF_CRATES_COL", 250),
+	    std::make_shared<IntStat>("MPX_LIFETIME_CONTRA_EARNINGS", 50000000),
+
+	    // LOS SANTOS TUNERS
+	    // std::make_shared<IntStat>("MPX_CAR_CLUB_MEMBERSHIP", 1),
+	    std::make_shared<PackedBoolStat>(31737),
+	    std::make_shared<PackedBoolStat>(41870),
+	    std::make_shared<PackedBoolStat>(31753),
+	    std::make_shared<IntBitsStat>("MPX_TUNER_COMP_BS", 0, 7),
+	    std::make_shared<PackedBoolStat>(32397),
+	    std::make_shared<PackedIntStat>(30226, 10),
+	    std::make_shared<IntStat>("MPX_TUNER_COUNT", 25),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_TUNER_CUS_DEL_CASH", 5000000),
+
+	    // THE DIAMOND CASINO & RESORT
+	    std::make_shared<PackedBoolStat>(27089),
+	    std::make_shared<PackedBoolStat>(27090),
+	    std::make_shared<IntBitStat>("(MPX_VCM_FLOW_PROGRESS", 6),
+	    std::make_shared<IntBitStat>("(MPX_VCM_FLOW_PROGRESS", 12),
+	    std::make_shared<IntBitStat>("(MPX_VCM_FLOW_PROGRESS", 11),
+	    std::make_shared<IntBitStat>("(MPX_VCM_FLOW_PROGRESS", 17),
+	    std::make_shared<PackedBoolStat>(36916),
+	    std::make_shared<PackedBoolRangeStat>(36844, 36859),
+	    std::make_shared<PackedBoolRangeStat>(41548, 41553),
+	    std::make_shared<PackedBoolStat>(41868),
+	    std::make_shared<PackedIntStat>(42093, 11),
+	    std::make_shared<PackedBoolRangeStat>(41560, 41565),
+	    std::make_shared<PackedBoolRangeStat>(41554, 41559),
+
+	    // THE CAYO PERICO HEIST
+	    std::make_shared<PackedBoolStat>(30309),
+	    std::make_shared<PackedBoolStat>(30522),
+	    std::make_shared<IntBitStat>("MPX_H4_MISSIONS", 0),
+	    std::make_shared<IntBitStat>("(MPX_H4_PROGRESS", 1),
+	    std::make_shared<IntBitsStat>("MPX_H4_PROGRESS", 6, 11),
+	    std::make_shared<IntBitsStat>("MPX_H4_H4_DJ_MISSIONS", 0, 6),
+	    std::make_shared<PackedBoolStat>(41677),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_CAYO_PRP_NO_DEATHS", 25),
+	    std::make_shared<PackedIntStat>(42094, 15),
+	    std::make_shared<IntStat>("MPX_CR_SUBMARINE", 1),
+	    std::make_shared<IntStat>("MPX_CR_STRATEGIC_BOMBER", 1),
+	    std::make_shared<IntStat>("MPX_CR_SMUGGLER_PLANE", 1),
+	    std::make_shared<IntStat>("MPX_CR_STEALTH_HELI", 1),
+	    std::make_shared<IntStat>("MPX_CR_PATROL_BOAT", 1),
+	    std::make_shared<IntStat>("MPX_CR_SMUGGLER_BOAT", 1),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_CAYO_H_EARNINGS", 50000000),
+
+	    // THE DIAMOND CASINO HEIST
+
+	    std::make_shared<IntBitStat>("(MPX_CAS_HEIST_FLOW", 1),
+	    std::make_shared<PackedBoolStat>(28270),
+	    std::make_shared<PackedBoolStat>(36842),
+	    std::make_shared<IntBitStat>("(MPX_CAS_HEIST_FLOW", 10),
+	    std::make_shared<PackedBoolStat>(32399),
+	    std::make_shared<IntBitsStat>("MPX_CAS_HEIST_FLOW", 11, 13),
+	    std::make_shared<PackedBoolStat>(42025),
+	    std::make_shared<PackedBoolStat>(42086),
+	    std::make_shared<PackedBoolRangeStat>(41678, 41681),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_CASINO_H_EARNINGS", 50000000),
+
+	    // THE DOOMSDAY HEIST
+	    std::make_shared<PackedBoolStat>(18139),
+	    std::make_shared<PackedBoolStat>(36861),
+	    std::make_shared<IntBitsStat>("MPX_GANGOPS_FLOW_BITSET_MISS0", 0, 2),
+	    std::make_shared<PackedBoolStat>(41712),
+	    std::make_shared<PackedBoolStat>(36862),
+	    std::make_shared<PackedBoolStat>(41713),
+	    std::make_shared<PackedBoolStat>(36863),
+	    std::make_shared<PackedBoolStat>(41714),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_DOOM_PRP_NO_DEATHS", 14),
+	    std::make_shared<PackedIntStat>(42087, 10),
+	    std::make_shared<PackedBoolStat>(41685),
+	    std::make_shared<PackedBoolStat>(41690),
+	    std::make_shared<PackedBoolStat>(41696),
+	    std::make_shared<PackedBoolRangeStat>(41697, 41699),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_DOOMSDAY_ACTS", 15),
+
+	    // ORIGINAL HEISTS
+	    std::make_shared<PackedBoolStat>(36867),
+	    std::make_shared<PackedBoolStat>(36933),
+	    std::make_shared<PackedBoolStat>(41700),
+	    std::make_shared<PackedBoolStat>(41715),
+	    std::make_shared<PackedBoolStat>(41716),
+	    std::make_shared<PackedBoolStat>(41717),
+	    std::make_shared<PackedBoolStat>(41718),
+	    std::make_shared<PackedBoolStat>(41719),
+	    std::make_shared<PackedIntStat>(42100, 5),
+	    std::make_shared<PackedIntStat>(42090, 15),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_HEIST_EARNINGS", 50000000),
+	    std::make_shared<PackedBoolRangeStat>(41701, 41704),
+	    std::make_shared<PackedBoolStat>(36917),
+	    std::make_shared<PackedBoolStat>(42000),
+
+	    // ARENA WAR
+	    std::make_shared<PackedBoolStat>(25009),
+	    std::make_shared<PackedBoolRangeStat>(41647, 41655),
+	    std::make_shared<PackedIntStat>(22063, 20),
+	    std::make_shared<IntStat>("MPX_ARENAWARS_AP_TIER", 1000),
+	    std::make_shared<PackedIntStat>(42088, 15),
+	    std::make_shared<PackedIntStat>(42000, 20),
+
+	    // ADVERSARY MODS
+	    std::make_shared<PackedBoolRangeStat>(41594, 41646),
+	    std::make_shared<PackedBoolStat>(36840),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_ADV_WINS", 50),
+	    std::make_shared<PackedBoolStat>(36921),
+
+	    // SURVIVALS
+	    std::make_shared<IntStat>("MPX_PROG_HUB_SURVIVALS_PLAYED", 1),
+	    std::make_shared<PackedBoolStat>(41672),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_SURV_WAVES", 250),
+	    std::make_shared<PackedBoolStat>(41673),
+	    std::make_shared<PackedBoolStat>(41332),
+	    std::make_shared<PackedBoolStat>(41331),
+
+	    // RACING
+	    std::make_shared<PackedBoolStat>(42023),
+	    std::make_shared<PackedBoolRangeStat>(41363, 42151),
+	    std::make_shared<IntStat>("MPX_RACES_WON", 50),
+	    std::make_shared<IntBitsStat>("MPX_PROG_HUB_T_TRIAL_PAR_TIME", 0, 25),
+	    std::make_shared<IntBitsStat>("MPX_PROG_HUB_T_TRL_PAR_TIME_RC", 0, 25),
+	    std::make_shared<IntBitsStat>("MPX_PROG_HUB_T_TRL_PAR_TIME_HSW", 0, 25),
+	    std::make_shared<IntBitsStat>("MPX_PROG_HUB_T_TRL_PAR_TIME_BKE", 0, 25),
+	    std::make_shared<PackedIntStat>(41246, 20),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_FST_LPS_RSTAR_RAC", 50),
+
+
+	    // DEATHMATCHES
+	    std::make_shared<IntStat>("MPX_DM_END", 1),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_DM_TDM_PLAYS", 1),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_DM_COMMUNITY_PLAYS", 10),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_DTHM_KILL_5_WO_DIE", 25),
+	    std::make_shared<PackedBoolStat>(36922),
+
+	    // VEHICLE ENTHUSIAST
+	    std::make_shared<PackedBoolStat>(41864),
+	    std::make_shared<PackedBoolStat>(42014),
+	    std::make_shared<PackedBoolStat>(41865),
+	    std::make_shared<PackedBoolStat>(41863),
+	    std::make_shared<PackedBoolStat>(41840),
+	    std::make_shared<PackedBoolStat>(41839),
+	    std::make_shared<PackedBoolStat>(41841),
+	    std::make_shared<PackedBoolStat>(41838),
+	    std::make_shared<PackedIntStat>(42092, 5),
+	    std::make_shared<PackedIntStat>(42091, 10),
+	    std::make_shared<IntStat>("MPX_HUB_VEH_ENTH_OWNED_VEHS", 99),
+	    std::make_shared<PackedBoolStat>(41866),
+	    std::make_shared<PackedBoolRangeStat>(41842, 41862),
+	    std::make_shared<IntStat>("MPX_VEHICLES_CUSTOMISED", 50),
+
+	    // WEAPONS EXPERT
+	    std::make_shared<PackedBoolStat>(36934),
+	    std::make_shared<PackedBoolStat>(36935),
+	    std::make_shared<PackedBoolStat>(36936),
+	    std::make_shared<PackedBoolStat>(36937),
+	    std::make_shared<PackedBoolStat>(36938),
+	    std::make_shared<PackedBoolStat>(36920),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_WEAP_TYPE_ANSR", -1),
+	    std::make_shared<PackedIntStat>(41242, 8),
+	    std::make_shared<PackedBoolStat>(36942),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_10_CHAL_ANSR", 10),
+	    std::make_shared<PackedBoolStat>(36941),
+	    std::make_shared<PackedBoolRangeStat>(15456, 15460),
+
+	    // A Safehouse In The Hills
+	    std::make_shared<PackedBoolStat>(54773),
+	    std::make_shared<PackedBoolStat>(54774),
+	    std::make_shared<PackedBoolStat>(54775),
+	    std::make_shared<PackedBoolRangeStat>(54776, 54780),
+	    std::make_shared<IntStat>("MPX_PROG_HUB_KNOWAY_EARNINGS", 5000000),
+	    std::make_shared<PackedBoolRangeStat>(54781, 54785),
+	    std::make_shared<PackedBoolStat>(54786),
+
 				STATS::STAT_SAVE(0, 0, 3, 0);
 			}
 			else
@@ -245,94 +432,4 @@ namespace YimMenu::Features
 	    "unlockallcareerprogress",
 	    "Unlock All Career Progress",
 	    "Completes all Career Progress categories"};
-//Reset
-class ResetCareerProgress : public Command
-{
-	using Command::Command;
-
-	virtual void OnCall() override
-	{
-		if (*Pointers.IsSessionStarted)
-		{
-			Stats::SetInt("MPX_PROG_HUB_KNOWAY_EARNINGS", 0);
-			Stats::SetPackedBoolRange(54773, 54786, false);
-			Stats::SetPackedBool(54653, false);
-			Stats::SetInt("MPX_SB_CAR_WASH_OWNED", 0);
-			Stats::SetInt("MPX_SB_HELI_TOURS_OWNED", 0);
-			Stats::SetInt("MPX_SB_WEED_SHOP_OWNED", 0);
-			Stats::SetPackedBoolRange(28313, 28318, false);
-			Stats::SetPackedInt(24928, 0);
-			Stats::SetInt("MPX_PROG_HUB_TYCOON25_EARNINGS", 0);
-			Stats::SetInt("MPX_PROG_HUB_CWASH_SAFEEARNINGS", 0);
-			Stats::SetPackedBoolRange(51278, 51280, false);
-			Stats::SetPackedBoolRange(51285, 51297, false);
-			Stats::SetInt("MPX_PROG_HUB_MFH_EARNINGS", 0);
-			Stats::SetPackedBoolRange(28272, 28287, false);
-			Stats::SetInt("MPX_PROG_HUB_CBR_EARNINGS", 0);
-			Stats::SetInt("MPX_SUM23_AVOP_PROGRESS", 0);
-			Stats::SetInt("MPX_ULP_MISSION_PROGRESS", 0);
-			Stats::SetInt("MPX_YACHT_MISSION_FLOW", 0);
-			Stats::SetPackedBoolRange(41507, 42022, false);
-			Stats::SetInt("MPX_HACKER_DEN_OWNED", 0);
-			Stats::SetPackedBool(9539, false);
-			Stats::SetPackedInt(24903, 0);
-			Stats::SetPackedInt(24904, 0);
-			Stats::SetInt("MPX_PROG_HUB_DEN24_SAFEEARNINGS", 0);
-			Stats::SetInt("MPX_HACKER24_GEN_BS", 0);
-			Stats::SetPackedBool(9549, false);
-			Stats::SetPackedBoolRange(9542, 9546, false);
-			Stats::SetInt("MPX_BAIL_OFFICE_OWNED", 0);
-			Stats::SetPackedBool(9537, false);
-			Stats::SetPackedBool(7639, false);
-			Stats::SetPackedInt(7669, 0);
-			Stats::SetPackedInt(7672, 0);
-			Stats::SetInt("MPX_PROG_HUB_BOUNTY_EARNINGS", 0);
-			Stats::SetPackedInt(7670, 0);
-			Stats::SetPackedInt(7674, 0);
-			Stats::SetPackedInt(7671, 0);
-			Stats::SetInt("MPX_PROG_HUB_BOUNTIES_ALIVE_BS", 0);
-			Stats::SetInt("MPX_BAIL_PROPERTY_EARNINGS", 0);
-			Stats::SetInt("MPX_SALVAGE_YARD_OWNED", 0);
-			Stats::SetPackedBoolRange(42037, 42038, false);
-			Stats::SetPackedBoolRange(42041, 42042, false);
-			Stats::SetPackedBoolRange(42044, 42051, false);
-			Stats::SetInt("MPX_PROG_HUB_SALV23_EARN_SALV", 0);
-			Stats::SetInt("MPX_PROG_HUB_SALV23_EARN_PERF", 0);
-			Stats::SetInt("MPX_PROG_HUB_SALV23_EARN_SELL", 0);
-			Stats::SetInt("MPX_XM22_MISSIONS_SA", 0);
-			Stats::SetInt("MPX_LFETIME_BIKER_BUY_COMPLET6", 0);
-			Stats::SetInt("MPX_XM22_FLOW", 0);
-			Stats::SetInt("MPX_LIFETIME_BKR_SELL_EARNINGS6", 0);
-			Stats::SetInt("MPX_LFETIME_BIKER_SELL_COMPLET6", 0);
-			Stats::SetPackedInt(41241, 0);
-			Stats::SetInt("MPX_PROG_HUB_LSDW_FJ_NO_DEATHS", 0);
-			Stats::SetInt("MPX_PROG_HUB_DAX_CLONE_KILLS", 0);
-			Stats::SetPackedBoolRange(41660, 41670, false);
-			Stats::SetPackedBool(28257, false);
-			Stats::SetInt("MPX_FIXER_COUNT", 0);
-			Stats::SetInt("MPX_FIXER_GENERAL_BS", 0);
-			Stats::SetBool("MPX_AWD_PARTY_NIGHT", false);
-			Stats::SetBool("MPX_AWD_BILLIONAIRE_GAMES", false);
-			Stats::SetBool("MPX_AWD_HOOD_PASS", false);
-			Stats::SetInt("MPX_AWD_COLD_CALLER", 0);
-			Stats::SetInt("MPX_PROG_HUB_FXER_PAY_HIT_BONUS", 0);
-			Stats::SetBool("MPX_AWD_SHORTFRANK_1", false);
-			Stats::SetBool("MPX_AWD_SHORTFRANK_2", false);
-			Stats::SetBool("MPX_AWD_SHORTFRANK_3", false);
-			Stats::SetBool("MPX_AWD_SHORTLAMAR_1", false);
-			Stats::SetBool("MPX_AWD_SHORTLAMAR_2", false);
-			Stats::SetBool("MPX_AWD_SHORTLAMAR_3", false);
-			ScriptMgr::Yield(5000ms);
-			STATS::STAT_SAVE(0, 0, 3, 0);
-		}
-		else
-		{
-			Notifications::Show("YimMenuV2", "You Must be Online", NotificationType::Error);
-		}
-	}
-};
-static ResetCareerProgress _ResetCareerProgress{
-    "resetcareerprogress",
-    "Reset Career Progress",
-    "Might not Reset All challenges"};
-}
+ }
