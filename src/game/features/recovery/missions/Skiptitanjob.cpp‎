@@ -1,4 +1,3 @@
-
 #include "core/commands/Command.hpp"
 #include "game/gta/Natives.hpp"
 #include "core/frontend/Notifications.hpp"
