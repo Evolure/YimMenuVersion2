@@ -35,7 +35,8 @@ namespace YimMenu::Submenus
 		auto instantfinish = std::make_shared<Group>("Instant Finish Missions");
 
 		auto casinoSlots = std::make_shared<Group>("Slot Machines");
-		//auto casinoWheel = std::make_shared<Group>("Lucky Wheel");
+		auto casinoWheel = std::make_shared<Group>("Lucky Wheel");
+		auto casinoMisc = std::make_shared<Group>("Misc");
 		//auto casinoBlackJack = std::make_shared<Group>("Blackjack");
 		//auto casinoRoulette = std::make_shared<Group>("Roulette");
 
@@ -98,6 +99,19 @@ namespace YimMenu::Submenus
 		Misc_business->AddItem(std::make_shared<CommandItem>("fillvehwarehouse"_J));
 
 		casinoSlots->AddItem(std::make_shared<BoolCommandItem>("casinomanipulaterigslotmachines"_J));
+		casinoSlots->AddItem(std::make_shared<CommandItem>("casinoslotswin"_J));
+		casinoSlots->AddItem(std::make_shared<CommandItem>("casinoslotslose"_J));
+
+		casinoWheel->AddItem(std::make_shared<ListCommandItem>("casinowheelprize"_J));
+		casinoWheel->AddItem(std::make_shared<CommandItem>("casinogivewheelprize"_J));
+
+
+		casinoMisc->AddItem(std::make_shared<BoolCommandItem>("casinobypass"_J));
+		casinoMisc->AddItem(std::make_shared<ListCommandItem>("casinochiplimit"_J));
+		casinoMisc->AddItem(std::make_shared<CommandItem>("casinoacquirechips"_J));
+		casinoMisc->AddItem(std::make_shared<CommandItem>("casinotradechips"_J));
+
+
 
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallcareerprogress"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockalltattoos"_J));
@@ -122,6 +136,10 @@ namespace YimMenu::Submenus
 		skip->AddItem(std::make_shared<CommandItem>("SkipJenetteTheMutette"_J));
 		skip->AddItem(std::make_shared<CommandItem>("SkipCluckinBellRaid"_J));
 		skip->AddItem(std::make_shared<CommandItem>("SkipOscargunzmanflies"_J));
+		skip->AddItem(std::make_shared<CommandItem>("Skiptitanjob"_J));
+
+
+
 
 		trophies->AddItem(std::make_shared<CommandItem>("unlockallmansiontrophies"_J));
 
@@ -175,6 +193,7 @@ namespace YimMenu::Submenus
 		instantfinish->AddItem(std::make_shared<CommandItem>("mcbusinesssellmissions"_J));
 
 
+
 		main->AddItem(generalGroup);
 		main->AddItem(gunvanGroup);
 		main->AddItem(requestServices);
@@ -185,12 +204,20 @@ namespace YimMenu::Submenus
 		main->AddItem(free);
 
 
+
 		businesses->AddItem(businessGroup);
 		businesses->AddItem(Bailloffice);
 		businesses->AddItem(Misc_business);
 		businesses->AddItem(over_lay);
 
+	
+
 		casino->AddItem(casinoSlots);
+		casino->AddItem(casinoWheel);
+		casino->AddItem(casinoMisc);
+
+
+
 		unlocks->AddItem(generalUnlocks);
 		unlocks->AddItem(trophies);
 		unlocks->AddItem(skip);
