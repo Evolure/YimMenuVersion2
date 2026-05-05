@@ -149,6 +149,25 @@ namespace YimMenu::Features
 			}
 		};
 
+		class ApplyPacificBonus : public Command
+		{
+			using Command::Command;
+
+			virtual void OnCall() override
+			{
+				const int value = 268435455;
+
+				Stats::SetInt("MPPLY_HEISTFLOWORDERPROGRESS", value);
+				Stats::SetBool("MPPLY_AWD_HST_ORDER", false);
+
+				Stats::SetInt("MPPLY_HEISTTEAMPROGRESSBITSET", value);
+				Stats::SetBool("MPPLY_AWD_HST_SAME_TEAM", false);
+
+				Stats::SetInt("MPPLY_HEISTNODEATHPROGREITSET", value);
+				Stats::SetBool("MPPLY_AWD_HST_ULT_CHAL", false);
+			}
+		};
+
 		static SetCuts _ApartmentHeistSetCuts{"apartmentheistsetcuts", "Set Cuts", "Sets heist cut"};
 		static ForceReady _ApartmentHeistForceReady{"apartmentheistforceready", "Force Ready", "Forces all players to be ready"};
 		static Setup _ApartmentHeistSetup{"apartmentheistsetup", "Setup", "Sets up current apartment heist"};
@@ -157,5 +176,6 @@ namespace YimMenu::Features
 		static SkipSwiping _ApartmentHeistSkipSwiping{"apartmentheistskipswiping", "Skip Swiping", "Skips card swiping process"};
 		static InstantFinish _ApartmentHeistInstantFinish{"apartmentheistinstantfinish", "Instant Finish", "Instantly passes the heist"};
 		static InstantFinishPacific _ApartmentHeistInstantFinishPacific{"apartmentheistinstantfinishpacific", "Instant Finish (Pacific)", "Instantly passes Pacific Standard Job"};
+		static ApplyPacificBonus _ApplyPacificBonus{"pacificbonus", "Pacific 12mil Bonus", "Note: Apply this BEFORE starting and finishing the Heist"};
 	}
 }
