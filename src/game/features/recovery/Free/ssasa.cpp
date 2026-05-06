@@ -8,7 +8,8 @@ namespace YimMenu::Features
 
 		virtual void OnCall() override
 		{
-			Stats::SetPackedBool(36828, true);
+			Stats::SetPackedBool(7332, true);
+			Stats::SaveStats();
 		}
 	}; 
 	static Free_S95 _Free_S95{"FKarin_S95", "Karin S95", "Free at SSASA."};
