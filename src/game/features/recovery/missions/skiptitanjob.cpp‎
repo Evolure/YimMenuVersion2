@@ -33,8 +33,5 @@ namespace YimMenu::Features
 			}
 		}
 	};
-	static Titan_job _Titan_job{
-	    "Skiptitanjob",
-	    "Skip titan job setup",
-	    "Skip titan job setup"};
+	static Titan_job _Titan_job{"Skiptitanjob", "Skip titan job setup", "Skip titan job setup."};
 }
