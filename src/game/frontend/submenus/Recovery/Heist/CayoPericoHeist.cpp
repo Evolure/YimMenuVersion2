@@ -10,6 +10,9 @@ namespace YimMenu::Submenus
 	    "Kosatka",
 	    "Drainage Pipe",
 	    "Drainage Pipe Checkpoint",
+	    "El Rubio's Office",
+	    "Front Gate Exit",
+	    "Ocean (Exit)",
 	};
 
 
@@ -62,6 +65,17 @@ namespace YimMenu::Submenus
 					  break;
 					  case 2: // Drainage Pipe Checkpoint
 						   pos = { 5053.773, -5773.2266, -5.40778 };
+					  break;
+					  case 3: // El Rubio's Office
+						    pos = { 5010.12, -5750.1353, 28.84334 };
+						    Utils::SetHeading(325);
+					  break;
+					  case 4: // Front Gate Exit
+						    pos = { 4990.0386, -5717.6895, 19.880217 };
+						    Utils::SetHeading(50);
+					  break;
+					  case 5: // Ocean (Exit)
+						   pos = { 4771.479, -6165.737, -39.079613 };
 					  break;
 
 					}
