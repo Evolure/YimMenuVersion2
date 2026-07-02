@@ -57,6 +57,7 @@ namespace YimMenu::Submenus
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("freechangeappearance"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("nochangeappearancecooldown"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("allowgenderchange"_J));
+		generalGroup->AddItem(std::make_shared<BoolCommandItem>("autocollecttargets"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("peddropcash"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("vehicledropcash"_J));
 
