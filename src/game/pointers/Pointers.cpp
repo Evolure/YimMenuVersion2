@@ -420,6 +420,11 @@ namespace YimMenu
 			GameSkeletonUpdate = addr.As<PVOID>();
 		});
 
+		constexpr auto viewportPtrn = Pattern<"48 8D 35 ? ? ? ? 48 01 C6 F3 0F 10 5B 08 F3 0F 10 0B">("Viewport");
+		scanner.Add(viewportPtrn, [this](PointerCalculator ptr) {
+			Viewport = ptr.Add(3).Rip().Add(0x460).As<rage::CViewport*>();
+		});
+		
 		constexpr auto anticheatInitializedHashPtrn = Pattern<"89 9E C8 00 00 00 48 8B 0D ? ? ? ? 48 85 C9 74 46">("AnticheatInitializedHash&GetAnticheatInitializedHash");
 		scanner.Add(anticheatInitializedHashPtrn, [this](PointerCalculator ptr) {
 			AnticheatInitializedHash = ptr.Add(9).Rip().As<rage::Obf32**>();
