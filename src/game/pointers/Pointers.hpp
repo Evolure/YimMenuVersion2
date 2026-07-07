@@ -7,6 +7,7 @@
 #include "types/rage/ObfVar.hpp"
 #include "core/memory/BytePatches.hpp"
 #include "types/player/CPlayerInfo.hpp"
+#include "../../types/rage/CViewport.hpp"
 
 namespace rage
 {
@@ -160,6 +161,7 @@ namespace YimMenu
 		PVOID AssistedAimShouldReleaseEntity;
 		Functions::AssistedAimFindNewTarget AssistedAimFindNewTarget;
 		PVOID GameSkeletonUpdate;
+		rage::CViewport* Viewport;
 		PVOID Nullsub;
 		rage::Obf32** AnticheatInitializedHash;
 		PVOID GetAnticheatInitializedHash;
