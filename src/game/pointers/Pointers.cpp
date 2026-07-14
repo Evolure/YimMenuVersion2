@@ -1,10 +1,10 @@
+
 #include "Pointers.hpp"
 
 #include "core/backend/PatternCache.hpp"
 #include "core/memory/ModuleMgr.hpp"
 #include "core/memory/PatternScanner.hpp"
 #include "core/util/Joaat.hpp"
-#include "types/network/rlSessionInfo.hpp"
 #include "types/rage/atArray.hpp"
 
 namespace YimMenu
@@ -14,7 +14,20 @@ namespace YimMenu
 	{
 		return Pointers.ScriptThreads && Pointers.ScriptThreads->size() != 0;
 	}
-
+	auto start_time{std::chrono::high_resolution_clock::now()};
+	std::string get_milisecond_results(int mil)
+	{
+		if (mil < 1000)
+			return "Really good!";
+		else if (mil > 1000 && mil < 1500)
+			return "Good";
+		else if (mil > 1500 && mil < 2500)
+			return "Average";
+		else if (mil > 2500 && mil < 4000)
+			return "Decent";
+		else if (mil > 4000)
+			return "Bad";
+	}
 	bool Pointers::Init()
 	{
 		PatternCache::Init();
@@ -107,7 +120,7 @@ namespace YimMenu
 			ScriptGlobals = ptr.Add(7).Add(3).Rip().As<std::int64_t**>();
 		});
 
-		constexpr auto sendNetworkDamagePtrn = Pattern<"0F B6 41 28 04 FE 3C 03 0F 87 ? ? ? ? 48 83 BF D0 00 00 00 00">("SendNetworkDamage");
+		constexpr auto sendNetworkDamagePtrn = Pattern<"0F B6 41 28 04 FE 3C 03 0F 87 EA">("SendNetworkDamage");
 		scanner.Add(sendNetworkDamagePtrn, [this](PointerCalculator ptr) {
 			TriggerWeaponDamageEvent = ptr.Sub(0x51).As<Functions::TriggerWeaponDamageEvent>();
 		});
@@ -178,7 +191,6 @@ namespace YimMenu
 		scanner.Add(spectatePatchPtrn, [this](PointerCalculator ptr) {
 			SpectatePatch = BytePatches::Add(ptr.As<std::uint8_t*>(), 0xEB);
 		});
-
 		constexpr auto modelSpawnBypassPtrn = Pattern<"E8 ? ? ? ? 48 8B 78 48">("ModelSpawnBypass");
 		scanner.Add(modelSpawnBypassPtrn, [this](PointerCalculator ptr) {
 			ModelSpawnBypass = BytePatches::Add(ptr.Add(1).Rip().Add(0x2B).As<std::uint8_t*>(), 0xEB);
@@ -199,10 +211,10 @@ namespace YimMenu
 			NetEventMgr = ptr.Add(3).Rip().As<rage::netEventMgr**>();
 		});
 
-		constexpr auto sendEventAckPtrn = Pattern<"84 C0 75 ? 44 89 F5 4D 8D B4 24 08 C4 02 00">("SendEventAck");
+		constexpr auto sendEventAckPtrn = Pattern<"84 C0 75 ? 89 EE 49 8D AD">("SendEventAck");
 		scanner.Add(sendEventAckPtrn, [this](PointerCalculator ptr) {
 			EventAck = ptr.Sub(4).Rip().As<Functions::EventAck>();
-			SendEventAck = ptr.Add(0x15).Add(1).Rip().As<Functions::SendEventAck>();
+			SendEventAck = ptr.Add(0x13).Add(1).Rip().As<Functions::SendEventAck>();
 		});
 
 		constexpr auto queueDependencyPtrn = Pattern<"0F 29 46 50 48 8D 05">("QueueDependency&SigScanMemory");
@@ -216,9 +228,9 @@ namespace YimMenu
 			ScriptVM = ptr.Sub(0x24).As<Functions::ScriptVM>();
 		});
 
-		constexpr auto prepareMetricForSendingPtrn = Pattern<"48 89 F1 FF 50 20 48 8D 15 ? ? ? ? 48 89 F9 49 89 C0">("PrepareMetricForSending");
+		constexpr auto prepareMetricForSendingPtrn = Pattern<"48 89 F9 FF 50 20 48 8D 15">("PrepareMetricForSending");
 		scanner.Add(prepareMetricForSendingPtrn, [this](PointerCalculator ptr) {
-			PrepareMetricForSending = ptr.Sub(0x4B).As<PVOID>();
+			PrepareMetricForSending = ptr.Sub(0x26).As<PVOID>();
 		});
 
 		constexpr auto beDataPtrn = Pattern<"48 C7 05 ? ? ? ? 00 00 00 00 E8 ? ? ? ? 48 89 C1 E8 ? ? ? ? E8 ? ? ? ? BD 0A 00 00 00">("BEData");
@@ -228,10 +240,20 @@ namespace YimMenu
 			IsBEBanned = ptr.Add(3).Rip().Add(8).Add(4).Add(8).Add(4).As<bool*>();
 		});
 
-		constexpr auto battlEyeStatusUpdatePatchPtrn = Pattern<"80 B9 92 0A 00 00 01 48 81 D1 90 0A 00 00">("BattlEyeStatusUpdatePatch");
+		constexpr auto battlEyeStatusUpdatePatchPtrn = Pattern<"80 B9 92 0A 00 00 01">("BattlEyeStatusUpdatePatch");
 		scanner.Add(battlEyeStatusUpdatePatchPtrn, [this](PointerCalculator ptr) {
-			BattlEyeStatusUpdatePatch = BytePatches::Add(ptr.Add(0x10C).As<void*>(),
-				std::to_array<std::uint8_t>({0x31, 0xC0, 0xC3})); // xor eax, eax; ret
+			BattlEyeStatusUpdatePatch = BytePatches::Add(ptr.As<void*>(),
+			    // since arxan obfuscated this subroutine, return mid-function instead
+			    // TODO: this might break in a later update
+			    std::to_array<std::uint8_t>({
+			        0x48,
+			        0x83,
+			        0xC4,
+			        0x38, // add rsp, 38h
+			        0x5F, // pop rdi
+			        0x5E, // pop rsi
+			        0xC3  // ret
+			    }));
 		});
 
 		constexpr auto writeNetArrayDataPtrn = Pattern<"0F 84 06 03 00 00 0F B6 83">("WriteNetArrayData");
@@ -296,9 +318,9 @@ namespace YimMenu
 			NetworkSession = ptr.Add(0x17).Add(3).Rip().As<CNetworkSession**>();
 		});
 
-		constexpr auto joinSessionByInfoPtrn = Pattern<"41 57 41 56 56 57 55 53 48 83 EC 68 44 89 CF 45 89 C7 48 89 D5 48 89 CE B1 01">("JoinSessionByInfo");
+		constexpr auto joinSessionByInfoPtrn = Pattern<"B0 01 40 84 E9 0F 85 32 FD FF FF 48 89 F1">("JoinSessionByInfo");
 		scanner.Add(joinSessionByInfoPtrn, [this](PointerCalculator ptr) {
-			JoinSessionByInfo = ptr.As<Functions::JoinSessionByInfo>();
+			JoinSessionByInfo = ptr.Sub(0x7).Add(1).Rip().As<Functions::JoinSessionByInfo>();
 		});
 
 		constexpr auto getSessionByGamerHandle = Pattern<"48 C7 84 24 80 00 00 00 10 00 00 08">("GetSessionByGamerHandle");
@@ -362,10 +384,11 @@ namespace YimMenu
 			SetJoinRequestPoolTypePatch = BytePatches::Add(ptr.Sub(5).As<std::uint8_t*>(), std::to_array<std::uint8_t>({0xB8, 0x00, 0x00, 0x00, 0x00}));
 		});
 
-		constexpr auto handleJoinRequestIgnorePoolPatchPtrn = Pattern<"41 83 FF 05 74 ? 41 83 FF 01">("HandleJoinRequestIgnorePoolPatch");
+		constexpr auto handleJoinRequestIgnorePoolPatchPtrn = Pattern<"41 83 FF 05 74 ? 42 8B 84 F5">("HandleJoinRequestIgnorePoolPatch");
 		scanner.Add(handleJoinRequestIgnorePoolPatchPtrn, [this](PointerCalculator ptr) {
 			HandleJoinRequestIgnorePoolPatch = BytePatches::Add(ptr.As<void*>(), std::to_array<std::uint8_t>({0x39, 0xC9, 0x90, 0x90}));
 		});
+
 
 		constexpr auto statsMpCharacterMappingDataPtrn = Pattern<"48 8D 0D ? ? ? ? 89 F2 0F 28 74 24 ? 48 83 C4 38">("CStatsMpCharacterMappingData");
 		scanner.Add(statsMpCharacterMappingDataPtrn, [this](PointerCalculator ptr) {
@@ -382,17 +405,6 @@ namespace YimMenu
 			BattlEyeServerProcessPlayerJoin = ptr.Sub(4).Rip().As<PVOID*>()[1];
 		});
 
-		constexpr auto gameDataHashPtrn = Pattern<"48 8D 3D ? ? ? ? 69 C9">("GameDataHash");
-		scanner.Add(gameDataHashPtrn, [this](PointerCalculator ptr) {
-			GameDataHash = ptr.Add(3).Rip().As<CGameDataHash*>();
-		});
-
-		constexpr auto getDLCHashPtrn = Pattern<"31 D2 E8 ? ? ? ? 3B 84">("GetDLCHash&DLCManager");
-		scanner.Add(getDLCHashPtrn, [this](PointerCalculator ptr) {
-			DLCManager = ptr.Sub(4).Rip().As<void**>();
-			GetDLCHash = ptr.Add(3).Rip().As<PVOID>();
-		});
-
 		constexpr auto assistedAimShouldReleaseEntityPtrn = Pattern<"80 7F 28 04 75 6A">("AssistedAimShouldReleaseEntity");
 		scanner.Add(assistedAimShouldReleaseEntityPtrn, [this](PointerCalculator ptr) {
 			AssistedAimShouldReleaseEntity = ptr.Sub(0xF).As<PVOID>();
@@ -403,6 +415,16 @@ namespace YimMenu
 			AssistedAimFindNewTarget = ptr.Sub(0x33).As<Functions::AssistedAimFindNewTarget>();
 		});
 
+		static constexpr auto gameSkeletonUpdatePtrn = Pattern<"56 48 83 EC 20 48 8B 81 40 01 00 00 48 85 C0">("GameSkeletonUpdate");
+		scanner.Add(gameSkeletonUpdatePtrn, [this](PointerCalculator addr) {
+			GameSkeletonUpdate = addr.As<PVOID>();
+		});
+
+		constexpr auto viewportPtrn = Pattern<"48 8D 35 ? ? ? ? 48 01 C6 F3 0F 10 5B 08 F3 0F 10 0B">("Viewport");
+		scanner.Add(viewportPtrn, [this](PointerCalculator ptr) {
+			Viewport = ptr.Add(3).Rip().Add(0x460).As<rage::CViewport*>();
+		});
+		
 		constexpr auto anticheatInitializedHashPtrn = Pattern<"89 9E C8 00 00 00 48 8B 0D ? ? ? ? 48 85 C9 74 46">("AnticheatInitializedHash&GetAnticheatInitializedHash");
 		scanner.Add(anticheatInitializedHashPtrn, [this](PointerCalculator ptr) {
 			AnticheatInitializedHash = ptr.Add(9).Rip().As<rage::Obf32**>();
@@ -444,17 +466,68 @@ namespace YimMenu
 			MatchmakingSessionDetailSendResponse = addr.Add(0x2F).Rip().As<PVOID>();
 		});
 
-		static constexpr auto gameSkeletonUpdatePtrn = Pattern<"56 48 83 EC 20 48 8B 81 40 01 00 00 48 85 C0">("GameSkeletonUpdate");
-		scanner.Add(gameSkeletonUpdatePtrn, [this](PointerCalculator addr) {
-			GameSkeletonUpdate = addr.As<PVOID>();
+		/*	static constexpr auto getLabelTextPtrn = Pattern<"56 48 83 EC 20 48 85 D2 74 25 0F B6 02 A8 DF 74 23 48 89 CE 48 89 D1 31 D2 E8 ? ? ? ? 48 89 F1 89 C2 E8 ? ? ? ?">("GetLabelText&GetLabelTextInternal");
+		scanner.Add(getLabelTextPtrn, [this](PointerCalculator addr) {
+			GetLabelText = addr.As<PVOID>();
+			GetLabelTextInternal = addr.Add(36).Rip().As<PVOID>();
+		});*/
+
+		static constexpr auto getLabelTextPtrn = Pattern<"56 48 83 EC 20 48 85 D2 74 25 0F B6 02 A8 DF 74 23 48 89 CE 48 89 D1 31 D2 E8 ? ? ? ? 48 89 F1 89 C2 E8 ? ? ? ?">("GetLabelText&GetLabelTextInternal");
+		scanner.Add(getLabelTextPtrn, [this](PointerCalculator addr) {
+			GetLabelText = addr.As<PVOID>();
+			GetLabelTextInternal = addr.Add(36).Rip().As<PVOID>();
 		});
+
+		/*static constexpr auto getLabelTextPtrn = Pattern<"56 48 83 EC 20 48 85 D2 74 25">("GetLabelText");
+		scanner.Add(getLabelTextPtrn, [this](PointerCalculator addr) {
+			GetLabelText = addr.As<PVOID>();
+		});*/
+
+		static constexpr auto getLabelTextInternalPtrn = Pattern<"41 57 41 56 56 57 53 48 83 EC 20 89 D7 49 89 CE 48 8D 0D ? ? ? ? E8 ? ? ? ?">("GetLabelTextInternal");
+		scanner.Add(getLabelTextInternalPtrn, [this](PointerCalculator addr) {
+			GetLabelTextInternal = addr.As<PVOID>();
+		});
+
+		static constexpr auto FrameCountPtrn = Pattern<"8B 15 ? ? ? ? FF C2">("FrameCount");
+		scanner.Add(FrameCountPtrn, [this](PointerCalculator addr) {
+			m_frame_count = addr.Add(2).Rip().As<uint32_t*>();
+		});
+
+  		static constexpr auto frameLimiterPtrn = Pattern<"48 29 FE 78">("FrameLimiter");
+        scanner.Add(frameLimiterPtrn, [this](PointerCalculator ptr) {
+            FrameLimiter_Patch = BytePatches::Add(ptr.Sub(4).As<std::uint8_t*>(), 0xFF);
+        });
+		
+		static constexpr auto GameStatePtrn = Pattern<"83 3D ? ? ? ? ? 0F 85 ? ? ? ? BA ? 00">("GameState");
+		scanner.Add(GameStatePtrn, [this](PointerCalculator addr) {
+			m_game_state = addr.Add(2).Rip().Add(1).As<eGameState*>();
+		});
+
+		constexpr auto gameDataHashPtrn = Pattern<"48 8D 3D ? ? ? ? 69 C9">("GameDataHash");
+		scanner.Add(gameDataHashPtrn, [this](PointerCalculator ptr) {
+			GameDataHash = ptr.Add(3).Rip().As<CGameDataHash*>();
+		});
+
+		constexpr auto getDLCHashPtrn = Pattern<"31 D2 E8 ? ? ? ? 3B 84">("GetDLCHash&DLCManager");
+		scanner.Add(getDLCHashPtrn, [this](PointerCalculator ptr) {
+			DLCManager = ptr.Sub(4).Rip().As<void**>();
+			GetDLCHash = ptr.Add(3).Rip().As<PVOID>();
+		});
+
 
 		if (!scanner.Scan())
 		{
 			LOG(FATAL) << "Some patterns could not be found, unloading.";
 			return false;
 		}
-
+		if (m_frame_count)
+		{
+			LOG(INFO) << "Frame: " << *m_frame_count;
+		}
+		else
+		{
+			LOG(WARNING) << "m_frame_count is NULL!";
+		}
 		PatternCache::Update();
 		return true;
 	}
@@ -509,7 +582,16 @@ namespace YimMenu
 			LOG(WARNING) << "Some socialclub patterns could not be found";
 			return false;
 		}
-
+		auto end_time{std::chrono::high_resolution_clock::now()};
+		auto elapsed_time{std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count()};
+		if (g_failed_sig_count > 0)
+		{
+			LOG(WARNING) << "Scanning finished with issues | Time: " << elapsed_time << "ms (" << get_milisecond_results(elapsed_time) << "), Found " << g_found_sig_count << "/" << g_total_sig_count << ", Failed " << g_failed_sig_count;
+		}
+		else
+		{
+			LOG(INFO) << "Scanning done! | Time taken: " << elapsed_time << "ms (" << get_milisecond_results(elapsed_time) << "), Found " << g_found_sig_count << "/" << g_total_sig_count;
+		}
 		PatternCache::Update();
 		return true;
 	}
