@@ -21,6 +21,9 @@ namespace YimMenu::Submenus
 		globals->AddItem(std::make_shared<BoolCommandItem>("hornboost"_J));
 		globals->AddItem(std::make_shared<BoolCommandItem>("modifyboostbehavior"_J));
 		globals->AddItem(std::make_shared<ConditionalItem>("modifyboostbehavior"_J, std::make_shared<ListCommandItem>("boostbehavior"_J)));
+		globals->AddItem(std::make_shared<BoolCommandItem>("autodrive"_J));
+		globals->AddItem(std::make_shared<ConditionalItem>("autodrive"_J, std::make_shared<IntCommandItem>("autodrivespeed"_J)));
+		globals->AddItem(std::make_shared<ConditionalItem>("autodrive"_J, std::make_shared<ListCommandItem>("autodrivestyle"_J)));
 
 		tools->AddItem(std::make_shared<CommandItem>("enterlastvehicle"_J));
 		tools->AddItem(std::make_shared<CommandItem>("enterpvvehicle"_J));
