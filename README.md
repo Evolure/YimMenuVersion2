@@ -30,7 +30,7 @@ It provides powerful features, stability improvements, and an extensible archite
 
 1. **Download FSL (Recommended)**  
    👉 [Download Here](https://www.unknowncheats.me/forum/grand-theft-auto-v/616977-fsl-local-gtao-saves.html)  
-   - Place `version.dll` inside your **GTA V root directory**  
+   - Place `WINMM.dll` inside your **GTA V root directory**  
    - Using FSL improves **account safety**
 
 2. **Download YimMenuV2**  
@@ -92,3 +92,7 @@ FSL stores account data locally. Removing it hides those saves.
 
 **Fix:**  
 Delete this folder in Appdata: FSL
+
+### I removed FSL and the game doesn't start up anymore
+
+This is a known issue; delete "Documents/GTAV Enhanced/Profiles" to fix
