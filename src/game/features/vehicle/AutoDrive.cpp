@@ -8,9 +8,9 @@
 
 namespace YimMenu::Features
 {
-	static constexpr int kLawfulDrivingStyle = 786603;
-	static constexpr int kIgnoreLightsDrivingStyle = 2883621;
-	static constexpr int kAggressiveDrivingStyle = 1074528293;
+	static constexpr int lawful_driving_style = 786603;
+	static constexpr int ignore_lights_driving_style = 2883621;
+	static constexpr int aggressive_driving_style = 1074528293;
 
 	static IntCommand _AutoDriveSpeed{
 	    "autodrivespeed",
@@ -21,16 +21,16 @@ namespace YimMenu::Features
 	    70};
 
 	static std::vector<std::pair<int, const char*>> g_AutoDriveStyles = {
-	    {kLawfulDrivingStyle, "Lawful"},
-	    {kIgnoreLightsDrivingStyle, "Ignore Traffic Lights"},
-	    {kAggressiveDrivingStyle, "Aggressive"}};
+	    {lawful_driving_style, "Lawful"},
+	    {ignore_lights_driving_style, "Ignore Traffic Lights"},
+	    {aggressive_driving_style, "Aggressive"}};
 
 	static ListCommand _AutoDriveStyle{
 	    "autodrivestyle",
 	    "Driving Style",
 	    "How Auto Drive behaves around traffic and traffic lights",
 	    g_AutoDriveStyles,
-	    kLawfulDrivingStyle};
+	    lawful_driving_style};
 
 	class AutoDrive : public LoopedCommand
 	{
@@ -55,10 +55,10 @@ namespace YimMenu::Features
 			NoControl
 		};
 
-		static constexpr float kManualInputDeadzone = 0.2f;
-		static constexpr float kWaypointMoveThresholdSquared = 25.0f;
-		static constexpr float kArrivalDistanceSquared = 100.0f;
-		static constexpr float kStoppingRange = 8.0f;
+		static constexpr float manual_input_deadzone = 0.2f;
+		static constexpr float waypoint_move_threshold_squared = 25.0f;
+		static constexpr float arrival_distance_squared = 100.0f;
+		static constexpr float stopping_range = 8.0f;
 
 		Mode m_Mode = Mode::Idle;
 		FailureReason m_FailureReason = FailureReason::None;
@@ -104,9 +104,9 @@ namespace YimMenu::Features
 			const auto accelerate = std::abs(PAD::GET_CONTROL_NORMAL(0, static_cast<int>(ControllerInputs::INPUT_VEH_ACCELERATE)));
 			const auto brake = std::abs(PAD::GET_CONTROL_NORMAL(0, static_cast<int>(ControllerInputs::INPUT_VEH_BRAKE)));
 
-			return steering > kManualInputDeadzone
-			    || accelerate > kManualInputDeadzone
-			    || brake > kManualInputDeadzone
+			return steering > manual_input_deadzone
+			    || accelerate > manual_input_deadzone
+			    || brake > manual_input_deadzone
 			    || PAD::IS_CONTROL_PRESSED(0, static_cast<int>(ControllerInputs::INPUT_VEH_HANDBRAKE))
 			    || PAD::IS_CONTROL_PRESSED(0, static_cast<int>(ControllerInputs::INPUT_VEH_EXIT));
 		}
@@ -128,15 +128,17 @@ namespace YimMenu::Features
 		{
 			Vector3 roadTarget = waypoint;
 			float heading = 0.0f;
-			PATH::GET_CLOSEST_VEHICLE_NODE_WITH_HEADING(
-			    waypoint.x,
-			    waypoint.y,
-			    waypoint.z,
-			    &roadTarget,
-			    &heading,
-			    1,
-			    3.0f,
-			    0.0f);
+			if (!PATH::GET_CLOSEST_VEHICLE_NODE_WITH_HEADING(
+			        waypoint.x,
+			        waypoint.y,
+			        waypoint.z,
+			        &roadTarget,
+			        &heading,
+			        1,
+			        3.0f,
+			        0.0f))
+				return waypoint;
+
 			return roadTarget;
 		}
 
@@ -205,7 +207,7 @@ namespace YimMenu::Features
 			    m_RoadTarget.z,
 			    GetCruiseSpeed(),
 			    m_LastDrivingStyle,
-			    kStoppingRange);
+			    stopping_range);
 
 			m_Mode = Mode::Waypoint;
 			m_HasTask = true;
@@ -302,7 +304,7 @@ namespace YimMenu::Features
 			{
 				const auto waypointChanged = m_Mode == Mode::Idle
 				    || m_Mode == Mode::Wander
-				    || DistanceSquared2D(m_Waypoint, waypoint) > kWaypointMoveThresholdSquared;
+				    || DistanceSquared2D(m_Waypoint, waypoint) > waypoint_move_threshold_squared;
 
 				if (waypointChanged || (styleChanged && m_Mode == Mode::Waypoint))
 				{
@@ -316,7 +318,7 @@ namespace YimMenu::Features
 					m_LastSpeedKph = _AutoDriveSpeed.GetState();
 				}
 
-				if (m_Mode == Mode::Waypoint && DistanceSquared2D(vehicle.GetPosition(), m_RoadTarget) <= kArrivalDistanceSquared)
+				if (m_Mode == Mode::Waypoint && DistanceSquared2D(vehicle.GetPosition(), m_RoadTarget) <= arrival_distance_squared)
 					m_Mode = Mode::Arrived;
 
 				if (m_Mode == Mode::Arrived)
