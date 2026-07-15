@@ -4,11 +4,12 @@
 
 namespace YimMenu::Features
 {
-	static constexpr int SERVICE_GLOBAL_BASE = 2733138;
+	static constexpr int SERVICE_GLOBAL_BASE = 2733326;
 	inline void RequestService(int index)
 	{
 		*ScriptGlobal(SERVICE_GLOBAL_BASE).At(index).As<int*>() = 1;
 	}
+
 	class RequestMOC : public Command
 	{
 		using Command::Command;
