@@ -14,7 +14,6 @@ namespace YimMenu::Features
 			*ScriptGlobal(262145).At(37617).As<float*>() = 3.0f; // Cash
 			*ScriptGlobal(262145).At(37618).As<float*>() = 3.0f; // Docs
 			*ScriptGlobal(262145).At(37619).As<float*>() = 3.0f; // Bunker
-			*ScriptGlobal(262145).At(37620).As<float*>() = 3.0f; // Acid Lab
 		}
 		virtual void OnDisable() override
 		{
@@ -25,7 +24,6 @@ namespace YimMenu::Features
 			*ScriptGlobal(262145).At(37617).As<float*>() = 1.0f;
 			*ScriptGlobal(262145).At(37618).As<float*>() = 1.0f;
 			*ScriptGlobal(262145).At(37619).As<float*>() = 1.0f;
-			*ScriptGlobal(262145).At(37620).As<float*>() = 1.0f;
 		}
 	};
 	static MansionBusinessBoost _MansionBusinessBoost{

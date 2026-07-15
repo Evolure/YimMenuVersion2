@@ -49,7 +49,7 @@ namespace YimMenu::Features
 			if (*Pointers.IsSessionStarted)
 			{
 				FiberPool::Push([] {
-					*ScriptGlobal(262145).At(32517).As<int*>() = 1; // Enable Jack O' Lantern
+					*ScriptGlobal(262145).At(32518).As<int*>() = 1; // Enable Jack O' Lantern
 				});
 			}
 			else

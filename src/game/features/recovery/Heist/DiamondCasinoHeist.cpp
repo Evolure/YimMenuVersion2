@@ -7,6 +7,8 @@
 #include "game/gta/ScriptLocal.hpp"
 #include "core/backend/ScriptMgr.hpp"
 #include "game/backend/Tunables.hpp"
+#include "core/commands/LoopedCommand.hpp"
+
 
 namespace YimMenu::Features
 {
@@ -346,6 +348,27 @@ namespace YimMenu::Features
 				}
 			}
 		};
+
+		class Auto_Grab : public LoopedCommand
+		{
+			using LoopedCommand::LoopedCommand;
+
+			virtual void OnTick() override
+			{
+				*ScriptLocal("fm_mission_controller"_J, 10713).As<int*>() = 4; // Set to 4 when character is ready to grab the loot (3)
+                *ScriptLocal("fm_mission_controller"_J, 10713).At(14).As<float*>() = 2.0f; // Grab Speed (float) - Anything higher than 2 won't make it go faster
+			}
+
+			virtual void OnDisable() override
+			{
+
+
+			}
+		};
+
+	   static Auto_Grab _Auto_Grab{"Auto_Grab", "Auto-Grab", "Casino Heist Loot Auto-Grab"};
+
+
 
 		static SetCuts _DiamondCasinoHeistSetCuts{"diamondcasinoheistsetcuts", "Set Cuts", "Sets heist cut"};
 		static ForceReady _DiamondCasinoHeistForceReady{"diamondcasinoheistforceready", "Force Ready", "Forces all players to be ready"};

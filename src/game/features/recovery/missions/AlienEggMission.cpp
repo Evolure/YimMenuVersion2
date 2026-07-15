@@ -9,7 +9,7 @@ namespace YimMenu::Features
 
 		virtual void OnTick() override
 		{
-			*ScriptGlobal(2733138).At(3989).At(348).As<int*>() = 20;
+			*ScriptGlobal(2733326).At(3989).At(348).As<int*>() = 20;
 		}
 	};
 	static AlienEggMission _AlienEggMission{
