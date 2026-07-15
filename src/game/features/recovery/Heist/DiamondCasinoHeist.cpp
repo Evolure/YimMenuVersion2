@@ -7,8 +7,7 @@
 #include "game/gta/ScriptLocal.hpp"
 #include "core/backend/ScriptMgr.hpp"
 #include "game/backend/Tunables.hpp"
-#include "core/commands/LoopedCommand.hpp"
-
+#include "game/backend/Self.hpp"
 
 namespace YimMenu::Features
 {
@@ -25,7 +24,7 @@ namespace YimMenu::Features
 
 			virtual void OnCall() override
 			{
-				auto base = ScriptGlobal(1973230).At(1497).At(736).At(92);
+				auto base = ScriptGlobal(1973762).At(1497).At(736).At(92);
 
 				*base.At(0, 1).As<int*>() = _DiamondCasinoHeistCut1.GetState();
 				*base.At(1, 1).As<int*>() = _DiamondCasinoHeistCut2.GetState();
@@ -40,7 +39,7 @@ namespace YimMenu::Features
 
 			virtual void OnCall() override
 			{
-				auto base = ScriptGlobal(1977594);
+				auto base = ScriptGlobal(1978125);
 
 				for (int i = 0; i <= 3; i++)
 				{
@@ -50,48 +49,63 @@ namespace YimMenu::Features
 		};
 
 		static std::vector<std::pair<int, const char*>> diamondCasinoHeistDifficulty = {
-		    {0, "Normal"},
-		    {1, "Hard"}};
+			{0, "Normal"},
+			{1, "Hard"}
+		};
 		static ListCommand _DiamondCasinoHeistDifficulty{"diamondcasinoheistdifficulty", "Difficulty", "Heist difficulty", diamondCasinoHeistDifficulty, 0};
 
 		static std::vector<std::pair<int, const char*>> diamondCasinoHeistPrimaryTarget = {
-		    {3, "Diamonds"},
-		    {1, "Gold"},
-		    {2, "Artwork"},
-		    {0, "Cash"}};
+			{3, "Diamonds"},
+			{1, "Gold"},
+			{2, "Artwork"},
+			{0, "Cash"}
+		};
 		static ListCommand _DiamondCasinoHeistPrimaryTarget{"diamondcasinoheistprimarytarget", "Primary Target", "Primary target", diamondCasinoHeistPrimaryTarget, 3};
 
 		static ListCommand* _DiamondCasinoHeistGunmanPtr = nullptr;
 		static ListCommand* _DiamondCasinoHeistApproachPtr = nullptr;
 
 		static std::vector<std::vector<std::vector<std::pair<int, const char*>>>> diamondCasinoHeistWeapon = {
-		    {{{0, "MK II Shotgun Loadout"}, {1, "MK II Rifle Loadout"}},
-		        {{0, "MK II SMG Loadout"}, {1, "MK II Rifle Loadout"}},
-		        {{0, "MK II Shotgun Loadout"}, {1, "MK II Rifle Loadout"}}},
-		    {{{0, "Rifle Loadout"}, {1, "Shotgun Loadout"}},
-		        {{0, "Rifle Loadout"}, {1, "Shotgun Loadout"}},
-		        {{0, "Rifle Loadout"}, {1, "Shotgun Loadout"}}},
-		    {{{0, "Combat PDW Loadout"}, {1, "Rifle Loadout"}},
-		        {{0, "Shotgun Loadout"}, {1, "Rifle Loadout"}},
-		        {{0, "Shotgun Loadout"}, {1, "Combat MG Loadout"}}},
-		    {{{0, "SMG Loadout"}, {1, "Shotgun Loadout"}},
-		        {{0, "Machine Pistol Loadout"}, {1, "Shotgun Loadout"}},
-		        {{0, "SMG Loadout"}, {1, "Shotgun Loadout"}}},
-		    {{{0, "Micro SMG Loadout"}, {1, "Machine Pistol Loadout"}},
-		        {{0, "Micro SMG Loadout"}, {1, "Shotgun Loadout"}},
-		        {{0, "Shotgun Loadout"}, {1, "Revolver Loadout"}}},
-		    {{{0, "                                        "}, {1, ""}},
-		        {{0, ""}, {1, ""}},
-		        {{0, ""}, {1, ""}}}};
+			{
+				{{0, "MK II Shotgun Loadout"}, {1, "MK II Rifle Loadout"}},
+				{{0, "MK II SMG Loadout"}, {1, "MK II Rifle Loadout"}},
+				{{0, "MK II Shotgun Loadout"}, {1, "MK II Rifle Loadout"}}
+			},
+			{
+				{{0, "Rifle Loadout"}, {1, "Shotgun Loadout"}},
+				{{0, "Rifle Loadout"}, {1, "Shotgun Loadout"}},
+				{{0, "Rifle Loadout"}, {1, "Shotgun Loadout"}}
+			},
+			{
+				{{0, "Combat PDW Loadout"}, {1, "Rifle Loadout"}},
+				{{0, "Shotgun Loadout"}, {1, "Rifle Loadout"}},
+				{{0, "Shotgun Loadout"}, {1, "Combat MG Loadout"}}
+			},
+			{
+				{{0, "SMG Loadout"}, {1, "Shotgun Loadout"}},
+				{{0, "Machine Pistol Loadout"}, {1, "Shotgun Loadout"}},
+				{{0, "SMG Loadout"}, {1, "Shotgun Loadout"}}
+			},
+			{
+				{{0, "Micro SMG Loadout"}, {1, "Machine Pistol Loadout"}},
+				{{0, "Micro SMG Loadout"}, {1, "Shotgun Loadout"}},
+				{{0, "Shotgun Loadout"}, {1, "Revolver Loadout"}}},
+			{
+				{{0, "                                        "}, {1, ""}},
+				{{0, ""}, {1, ""}},
+				{{0, ""}, {1, ""}}
+			}
+		};
 		static ListCommand _DiamondCasinoHeistWeapon{"diamondcasinoheistweapon", "Weapon", "Weapon", diamondCasinoHeistWeapon[5][0], 0};
 
 		static std::vector<std::pair<int, const char*>> diamondCasinoHeistGunman = {
-		    {0, "Chester McCoy"},
-		    {1, "Gustavo Mota"},
-		    {2, "Patrick McReary"},
-		    {3, "Charlie Reed"},
-		    {4, "Karl Abolaji"},
-		    {5, "Remove Gunman"}};
+			{0, "Chester McCoy"},
+			{1, "Gustavo Mota"},
+			{2, "Patrick McReary"},
+			{3, "Charlie Reed"},
+			{4, "Karl Abolaji"},
+			{5, "Remove Gunman"}
+		};
 
 		class Gunman : public ListCommand
 		{
@@ -106,9 +120,10 @@ namespace YimMenu::Features
 		static Gunman _DiamondCasinoHeistGunman{"diamondcasinoheistgunman", "Gunman", "Gunman", diamondCasinoHeistGunman, 5};
 
 		static std::vector<std::pair<int, const char*>> diamondCasinoHeistApproach = {
-		    {0, "Silent & Sneaky"},
-		    {1, "The Big Con"},
-		    {2, "Aggressive"}};
+			{0, "Silent & Sneaky"},
+			{1, "The Big Con"},
+			{2, "Aggressive"}
+		};
 
 		class Approach : public ListCommand
 		{
@@ -132,21 +147,23 @@ namespace YimMenu::Features
 		} _initPtrs;
 
 		static std::vector<std::vector<std::pair<int, const char*>>> diamondCasinoHeistVehicle = {
-		    {{0, "Zhaba"}, {1, "Vagrant"}, {2, "Outlaw"}, {3, "Everon"}},
-		    {{0, "Sultan Classic"}, {1, "Gauntlet Classic"}, {2, "Ellie"}, {3, "Komoda"}},
-		    {{0, "Retinue MK II"}, {1, "Drifty Yosemite"}, {2, "Sugoi"}, {3, "Jugular"}},
-		    {{0, "Manchez"}, {1, "Stryder"}, {2, "Defiler"}, {3, "Lectro"}},
-		    {{0, "Issi Classic"}, {1, "Asbo"}, {2, "Kanjo"}, {3, "Sentinel Classic"}},
-		    {{0, "                           "}, {1, ""}, {2, ""}, {3, ""}}};
+			{{0, "Zhaba"}, {1, "Vagrant"}, {2, "Outlaw"}, {3, "Everon"}},
+			{{0, "Sultan Classic"}, {1, "Gauntlet Classic"}, {2, "Ellie"}, {3, "Komoda"}},
+			{{0, "Retinue MK II"}, {1, "Drifty Yosemite"}, {2, "Sugoi"}, {3, "Jugular"}},
+			{{0, "Manchez"}, {1, "Stryder"}, {2, "Defiler"}, {3, "Lectro"}},
+			{{0, "Issi Classic"}, {1, "Asbo"}, {2, "Kanjo"}, {3, "Sentinel Classic"}},
+			{{0, "                           "}, {1, ""}, {2, ""}, {3, ""}}
+		};
 		static ListCommand _DiamondCasinoHeistVehicle{"diamondcasinoheistvehicle", "Vehicle", "Vehicle", diamondCasinoHeistVehicle[5], 0};
 
 		static std::vector<std::pair<int, const char*>> diamondCasinoHeistDriver = {
-		    {0, "Chester McCoy"},
-		    {1, "Eddie Toh"},
-		    {2, "Taliana Martinez"},
-		    {3, "Zach Nelson"},
-		    {4, "Karim Denz"},
-		    {5, "Remove Driver"}};
+			{0, "Chester McCoy"},
+			{1, "Eddie Toh"},
+			{2, "Taliana Martinez"},
+			{3, "Zach Nelson"},
+			{4, "Karim Denz"},
+			{5, "Remove Driver"}
+		};
 
 		class Driver : public ListCommand
 		{
@@ -161,12 +178,13 @@ namespace YimMenu::Features
 		static Driver _DiamondCasinoHeistDriver{"diamondcasinoheistdriver", "Driver", "Driver", diamondCasinoHeistDriver, 5};
 
 		static std::vector<std::pair<int, const char*>> diamondCasinoHeistHacker = {
-		    {4, "Avi Schwartzman"},
-		    {5, "Paige Harris"},
-		    {2, "Christian Feltz"},
-		    {3, "Yohan Blair"},
-		    {1, "Rickie Lukens"},
-		    {6, "Remove Hacker"}};
+			{4, "Avi Schwartzman"},
+			{5, "Paige Harris"},
+			{2, "Christian Feltz"},
+			{3, "Yohan Blair"},
+			{1, "Rickie Lukens"},
+			{6, "Remove Hacker"}
+		};
 		static ListCommand _DiamondCasinoHeistHacker{"diamondcasinoheisthacker", "Hacker", "Hacker", diamondCasinoHeistHacker, 6};
 
 		class Setup : public Command
@@ -285,7 +303,7 @@ namespace YimMenu::Features
 			virtual void OnCall() override
 			{
 				if (auto thread = Scripts::FindScriptThread("fm_mission_controller"_J))
-					*ScriptLocal(thread, 20395).At(2686).As<int*>() = _DiamondCasinoHeistActualTake.GetState();
+					*ScriptLocal(thread, 20412).At(2686).As<int*>() = _DiamondCasinoHeistActualTake.GetState();
 			}
 		};
 
@@ -297,8 +315,8 @@ namespace YimMenu::Features
 			{
 				if (auto thread = Scripts::FindScriptThread("fm_mission_controller"_J))
 				{
-					*ScriptLocal(thread, 54042).As<int*>() = 5;
-					*ScriptLocal(thread, 55108).As<int*>() = 5;
+					*ScriptLocal(thread, 55028).As<int*>() = 5;
+					*ScriptLocal(thread, 56098).As<int*>() = 5;
 				}
 			}
 		};
@@ -310,7 +328,7 @@ namespace YimMenu::Features
 			virtual void OnCall() override
 			{
 				if (auto thread = Scripts::FindScriptThread("fm_mission_controller"_J))
-					*ScriptLocal(thread, 10551).At(7).As<int*>() = *ScriptLocal(thread, 10551).At(37).As<int*>();
+					*ScriptLocal(thread, 10567).At(7).As<int*>() = *ScriptLocal(thread, 10567).At(37).As<int*>();
 			}
 		};
 
@@ -322,7 +340,7 @@ namespace YimMenu::Features
 			{
 				if (auto thread = Scripts::FindScriptThread("fm_mission_controller"_J))
 				{
-					*ScriptLocal(thread, 32616).As<int*>() = 8;
+					*ScriptLocal(thread, 32785).At(Self::GetPlayer().GetId(), 294).At(143).As<int*>() = 8;
 					*ScriptLocal(thread, 63640).As<int*>() = 5;
 				}
 			}
@@ -339,36 +357,15 @@ namespace YimMenu::Features
 					Scripts::ForceScriptHost(thread);
 					ScriptMgr::Yield(500ms);
 
-					*ScriptLocal(thread, 20395).At(1740).At(0, 1).As<int*>() = 80;
-					*ScriptLocal(thread, 20395).At(2686).As<int*>() = 4443220;
-					*ScriptLocal(thread, 20395).At(1062).As<int*>() = 5;
-					*ScriptLocal(thread, 20395).As<int*>() = 12;
-					*ScriptLocal(thread, 29016).At(0, 1).As<int*>() = 99999;
-					*ScriptLocal(thread, 32472).At(0, 294).At(68).As<int*>() = 99999;
+					*ScriptLocal(thread, 20412).At(1740).At(0, 1).As<int*>() = 80;
+					*ScriptLocal(thread, 20412).At(2686).As<int*>() = 4443220;
+					*ScriptLocal(thread, 20412).At(1062).As<int*>() = 5;
+					*ScriptLocal(thread, 20412).As<int*>() = 12;
+					*ScriptLocal(thread, 29326).At(0, 1).As<int*>() = 99999;
+					*ScriptLocal(thread, 32785).At(0, 294).At(68).As<int*>() = 99999;
 				}
 			}
 		};
-
-		class Auto_Grab : public LoopedCommand
-		{
-			using LoopedCommand::LoopedCommand;
-
-			virtual void OnTick() override
-			{
-				*ScriptLocal("fm_mission_controller"_J, 10713).As<int*>() = 4; // Set to 4 when character is ready to grab the loot (3)
-                *ScriptLocal("fm_mission_controller"_J, 10713).At(14).As<float*>() = 2.0f; // Grab Speed (float) - Anything higher than 2 won't make it go faster
-			}
-
-			virtual void OnDisable() override
-			{
-
-
-			}
-		};
-
-	   static Auto_Grab _Auto_Grab{"Auto_Grab", "Auto-Grab", "Casino Heist Loot Auto-Grab"};
-
-
 
 		static SetCuts _DiamondCasinoHeistSetCuts{"diamondcasinoheistsetcuts", "Set Cuts", "Sets heist cut"};
 		static ForceReady _DiamondCasinoHeistForceReady{"diamondcasinoheistforceready", "Force Ready", "Forces all players to be ready"};
@@ -376,8 +373,8 @@ namespace YimMenu::Features
 		static SetPotentialTake _DiamondCasinoHeistSetPotentialTake{"diamondcasinoheistsetpotentialtake", "Set Potential Take", "Updates potential take"};
 		static SetActualTake _DiamondCasinoHeistSetActualTake{"diamondcasinoheistsetactualtake", "Set Actual Take", "Updates actual take"};
 		static SkipHacking _DiamondCasinoHeistSkipHacking{"diamondcasinoheistskiphacking", "Skip Hacking", "Skips hacking process"};
-		static SoloMantrap _DiamondCasinoHeistSoloMantrap{"diamondcasinoheistsolomantrap", "Solo Mantrap", "Skips card swiping process"};
 		static SkipDrilling _DiamondCasinoHeistSkipDrilling{"diamondcasinoheistskipdrilling", "Skip Drilling", "Skips drilling process"};
+		static SoloMantrap _DiamondCasinoHeistSoloMantrap{"diamondcasinoheistsolomantrap", "Solo Mantrap", "Skips card swiping process"};
 		static InstantFinish _DiamondCasinoHeistInstantFinish{"diamondcasinoheistinstantfinish", "Instant Finish", "Instantly passes the heist"};
 	}
 }
