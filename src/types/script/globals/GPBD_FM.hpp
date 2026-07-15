@@ -480,8 +480,7 @@ struct FIELD_HANGAR_DATA
 };
 static_assert(sizeof(FIELD_HANGAR_DATA) == 2 * 8);
 
-#define NUM_PROPERTY_INTERIORS \
-	36 // (30 -> 31) b3095 \
+#define NUM_PROPERTY_INTERIORS 36 // (30 -> 31) b3095 \
 	                              // (31 -> 32) b3258 \
 	                              // (32 -> 33) b3407 \
 	                              // (33 -> 36) b3717
@@ -530,7 +529,7 @@ struct PROPERTY_DATA
 	SCR_INT PAD_0299;
 	DEFUNCT_BASE_DATA DefunctBaseData;
 	SCR_INT AvengerInteriorDecorFlags; // "PACKED_MP_INT_ARMORY_AIRCRAFT_INTERIOR_v0"
-	uint64_t PAD_0308[2];              // one field removed here b889g9
+	uint64_t PAD_0308[2]; // one field removed here b889g9
 	BUSINESS_HUB_DATA BusinessHubData;
 	NIGHTCLUB_DATA NightclubData;
 	SCR_INT PAD_0365;
@@ -688,8 +687,9 @@ struct GPBD_FM_Entry
 	// int64_t PAD_0861[2]; removed b889g9
 	SCR_INT ApartmentEnterFlags;
 	// SCR_VEC3 AvengerMissionStartPosition; removed b889g9
+	SCR_INT UnkCutsceneState; // added b1158.13g9, used in fmmc_launcher
 };
-static_assert(sizeof(GPBD_FM_Entry) == 883 * 8);
+static_assert(sizeof(GPBD_FM_Entry) == 884 * 8);
 
 struct GPBD_FM
 {
@@ -697,4 +697,4 @@ struct GPBD_FM
 
 	static GPBD_FM* Get();
 };
-static_assert(sizeof(GPBD_FM) == 28257 * 8);
+static_assert(sizeof(GPBD_FM) == 28289 * 8);
