@@ -88,7 +88,7 @@ namespace YimMenu::Features
 	};
 	inline void UnlockAchievement(AchievementId id)
 	{
-		auto base = ScriptGlobal(4525144);
+		auto base = ScriptGlobal(4525223);
 		*base.At(1).As<int*>() = static_cast<int>(id);
 		*base.At(2).As<int*>() = 1;
 	}
@@ -102,7 +102,7 @@ namespace YimMenu::Features
 
 				for (int id = 1; id <= 77; ++id)
 				{
-					auto base = ScriptGlobal(4525144);
+					auto base = ScriptGlobal(4525223);
 					*base.At(1).As<int*>() = id;
 					*base.At(2).As<int*>() = 1;
 
