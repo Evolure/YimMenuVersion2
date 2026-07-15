@@ -9,9 +9,9 @@ namespace YimMenu::Features
 
         virtual void OnCall() override
         {
-            *ScriptGlobal(1690454).As<int*>() = 1; // Peds
-            *ScriptGlobal(1690455).As<int*>() = 1; // Vehicles
-            *ScriptGlobal(1690456).As<int*>() = 1; // Objects
+            *ScriptGlobal(1690468).As<int*>() = 1; // Peds
+            *ScriptGlobal(1690469).As<int*>() = 1; // Vehicles
+            *ScriptGlobal(1690470).As<int*>() = 1; // Objects
         }
     };
 
