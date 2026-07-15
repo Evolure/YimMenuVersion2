@@ -13,7 +13,7 @@ namespace YimMenu::Features
 			if (*Pointers.IsSessionStarted)
 			{
 				Stats::SetInt("MPX_SALV23_INST_PROG", 31);
-				/*BTEA Needs more testing
+				/*BETA Needs more testing
 				*ScriptGlobal(262145).At(36725).As<int*>() = 500000;// Farm Raid Payout
 				*ScriptGlobal(262145).At(36726).As<int*>() = 50000;// Farm Raid Associate Payout
 				*/
