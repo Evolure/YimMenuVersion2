@@ -18,8 +18,8 @@ namespace YimMenu::Features
 		virtual void OnTick() override
 		{
 			*Pointers.HasGTAPlus = true;
-			*ScriptGlobal(1970058).As<bool*>() = true;
-			*ScriptGlobal(1970058).At(3).As<int*>() = (1 << 3) | (1 << 1);
+			*ScriptGlobal(1970586).As<bool*>() = true;
+			*ScriptGlobal(1970586).At(3).As<int*>() = (1 << 3) | (1 << 1);
 		}
 
 		virtual void OnDisable() override
@@ -28,5 +28,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static UnlockGTAPlus _UnlockGTAPlus{"unlockgtaplus", "Unlock GTA+", "Force-unlocks GTA+ content. Use with caution."};
+	static UnlockGTAPlus _UnlockGTAPlus{"unlockgtaplus", "Unlock GTA+", "Force-unlocks GTA+ content. Use with caution"};
 }
