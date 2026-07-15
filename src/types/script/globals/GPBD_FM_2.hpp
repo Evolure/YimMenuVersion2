@@ -52,8 +52,8 @@ struct GANGOPS_DATA
 	SCR_BOOL QuittedPlanningScreen;                   // 29
 	SCR_BOOL IsTutorialActive;                        // 30
 	SCR_ARRAY<uint64_t, 4> IsTutorialActiveForPlayer; // 31
-	TIMER FinaleForceLaunchTimer;                     // 36
-	SCR_BOOL IsFinaleForceLaunched;                   // 38
+	TIMER FinaleForceLaunchTimer;                     // 36 (H2_FINALE_FORCE_LAUNCH_TIME)
+	SCR_BOOL IsFinaleForceLaunched;                   // 38 (if players don't click ready in 3 minutes)
 };
 static_assert(sizeof(GANGOPS_DATA) == 39 * 8);
 
@@ -69,7 +69,7 @@ struct RANDOM_EVENTS_CLIENT_DATA
 	alignas(8) eRandomEventClientInitState InitState;         // 0
 	SCR_ARRAY<RANDOM_EVENTS_CLIENT_EVENT_DATA, 24> EventData; // 1
 	SCR_BITSET<uint64_t> IsParticipantInEventFlags;           // 75
-	SCR_INT UNK_0076;                                         // 76
+	SCR_INT UNK_0076;                                         // 76 (unused)
 };
 static_assert(sizeof(RANDOM_EVENTS_CLIENT_DATA) == 76 * 8);
 
@@ -85,9 +85,9 @@ struct SALVAGE_YARD_VEHICLE_SALE_DATA
 {
 	uint64_t PAD_0000[27];
 	HOCW_DATA HOWCData; // 27
-	uint64_t PAD_0043[9];
+	uint64_t PAD_0043[115];
 };
-static_assert(sizeof(SALVAGE_YARD_VEHICLE_SALE_DATA) == 52 * 8);
+static_assert(sizeof(SALVAGE_YARD_VEHICLE_SALE_DATA) == 158 * 8);
 
 struct GPBD_FM_2_Entry
 {
@@ -112,7 +112,7 @@ struct GPBD_FM_2_Entry
 	SCR_INT NumVotes;                                  // 19
 	SCR_INT MaxVotes;                                  // 20
 	SCR_INT PlayerTeam;                                // 21
-	uint64_t PAD_0022[8];                              // 22
+	uint64_t PAD_0022[8];                              // 22 (mission stuff)
 	SCR_INT TunableCloudCRC;                           // 30
 	SCR_INT CatalogCloudCRC;                           // 31
 	SCR_INT UNK_0032;                                  // 32
@@ -124,9 +124,9 @@ struct GPBD_FM_2_Entry
 	SCR_VEC3 CoronaPosition;                           // 40
 	GANGOPS_DATA GangopsData;                          // 43
 	RANDOM_EVENTS_CLIENT_DATA RandomEventsClientData;  // 82
-	SALVAGE_YARD_VEHICLE_SALE_DATA SYVehSaleData;      // 158
-
-	uint64_t PAD_0210[111];
+	SALVAGE_YARD_VEHICLE_SALE_DATA SYVehSaleData;      // 158 added b889g9
+	SCR_INT GangopsFlowMissionProg;                    // 316
+	SCR_ARRAY<uint64_t, 3> TrickOrTreatFlags;          // 317 96-bit flag bitset for effects
 };
 static_assert(sizeof(GPBD_FM_2_Entry) == 321 * 8);
 
