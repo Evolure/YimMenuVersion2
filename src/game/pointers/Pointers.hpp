@@ -176,7 +176,6 @@ namespace YimMenu
 		PVOID GetLabelTextInternal;
 		uint32_t* m_frame_count{};
 		BytePatch FrameLimiter_Patch; // Patch for frame limiter
-		eGameState* m_game_state{};
 		CGameDataHash* GameDataHash;
 		void** DLCManager;
 		PVOID GetDLCHash;
