@@ -53,6 +53,7 @@ namespace YimMenu::Submenus
 		generalGroup->AddItem(std::make_shared<IntCommandItem>("rpslider"_J, "Character Level"));
 		generalGroup->AddItem(std::make_shared<CommandItem>("applyrp"_J));
 		generalGroup->AddItem(std::make_shared<CommandItem>("Rockstar_dev_tshirt"_J));
+		generalGroup->AddItem(std::make_shared<CommandItem>("Good_Behavior_Bonus"_J));
 		
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("freechangeappearance"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("nochangeappearancecooldown"_J));
