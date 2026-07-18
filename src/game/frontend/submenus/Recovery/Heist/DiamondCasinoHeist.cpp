@@ -39,6 +39,9 @@ namespace YimMenu::Submenus
 		misc->AddItem(std::make_shared<CommandItem>("diamondcasinoheistskiphacking"_J));
 		misc->AddItem(std::make_shared<CommandItem>("diamondcasinoheistskipdrilling"_J));
 		misc->AddItem(std::make_shared<CommandItem>("diamondcasinoheistinstantfinish"_J));
+		misc->AddItem(std::make_shared<CommandItem>("diamondcasinoheistremovecameras"_J));
+		misc->AddItem(std::make_shared<CommandItem>("diamondcasinoheistkeycard"_J));
+		misc->AddItem(std::make_shared<BoolCommandItem>("autocollecttargets"_J));
 
 
 		tab->AddItem(cuts);
