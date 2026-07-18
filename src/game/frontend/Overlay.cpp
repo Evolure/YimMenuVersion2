@@ -4,6 +4,8 @@
 #include "core/commands/BoolCommand.hpp"
 #include "game/pointers/Pointers.hpp"
 #include "game/gta/invoker/Invoker.hpp"
+#include "game/backend/Self.hpp"
+#include "game/gta/ScriptGlobal.hpp"
 
 namespace YimMenu::Features
 {
@@ -20,6 +22,18 @@ namespace YimMenu::Features
 	    {4, "free"}};
 
 	static ListCommand _OverlayPositionCmd("overlaypos", "Overlay Position", "Change overlay position", g_OverlayPositionConfig, 0);
+
+	int GetCharacterRank()
+	{
+		const auto player = Self::GetPlayer().GetId();
+		return *ScriptGlobal(1845347).At(player, 884).At(198).At(5).As<int*>();
+	}
+
+	int GetCharacterRP()
+	{
+		const auto player = Self::GetPlayer().GetId();
+		return *ScriptGlobal(1845347).At(player, 884).At(198).At(1).As<int*>();
+	}
 }
 
 namespace YimMenu
@@ -91,7 +105,12 @@ namespace YimMenu
 
 		if (Features::_OverlayShowFPS.GetState())
 			ImGui::Text("FPS: %d", (int)(ImGui::GetIO().Framerate));
-		
+
+		ImGui::SeparatorText("Character");
+		ImGui::Text("Rank: %d", Features::GetCharacterRank());
+		ImGui::Text("RP: %d", Features::GetCharacterRP());
+
+
 		Features::DrawBusinessOverlay();
 
 		ImGui::End();
