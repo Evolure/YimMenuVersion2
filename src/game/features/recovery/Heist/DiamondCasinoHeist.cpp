@@ -8,6 +8,10 @@
 #include "core/backend/ScriptMgr.hpp"
 #include "game/backend/Tunables.hpp"
 #include "game/backend/Self.hpp"
+#include "game/gta/Natives.hpp"
+#include "game/backend/DeleteObjectsByHash.hpp"
+#include "game/gta/Pools.hpp"
+
 
 namespace YimMenu::Features
 {
@@ -367,6 +371,63 @@ namespace YimMenu::Features
 			}
 		};
 
+			class RemoveCameras : public Command
+		{
+			using Command::Command;
+
+			static const inline std::vector<Hash> CasinoCameraHashes = {
+			    "prop_cctv_cam_01a"_J,
+			    "prop_cctv_cam_01b"_J,
+			    "prop_cctv_cam_02a"_J,
+			    "prop_cctv_cam_03a"_J,
+			    "prop_cctv_cam_04a"_J,
+			    "prop_cctv_cam_04c"_J,
+			    "prop_cctv_cam_05a"_J,
+			    "prop_cctv_cam_06a"_J,
+			    "prop_cctv_cam_07a"_J,
+			    "prop_cs_cctv"_J,
+			    "p_cctv_s"_J,
+			    "hei_prop_bank_cctv_01"_J,
+			    "hei_prop_bank_cctv_02"_J,
+			    "ch_prop_ch_cctv_cam_02a"_J,
+			    "xm_prop_x17_server_farm_cctv_01"_J,
+			};
+
+			virtual void OnCall() override
+			{
+				for (auto object : YimMenu::Pools::GetObjects())
+				{
+					if (!object)
+						continue;
+
+					int handle = object.GetHandle();
+					Hash model = ENTITY::GET_ENTITY_MODEL(handle);
+
+					if (std::find(CasinoCameraHashes.begin(), CasinoCameraHashes.end(), model) != CasinoCameraHashes.end())
+					{
+						if (object.RequestControl(3000))
+						{
+							ENTITY::SET_ENTITY_COORDS_NO_OFFSET(handle, -8271.156f, -1293.2153f, -100.0f, false, false, false);
+						}
+					}
+				}
+			}
+		};
+
+		class RemoveKeycard : public Command
+		{
+			using Command::Command;
+
+			virtual void OnCall() override
+			{
+				Hash keycard = "ch_prop_fingerprint_scanner_01d"_J;
+				YimMenu::DeleteObjectsByHash(keycard);
+				Hash tunnerdoorright = "ch_prop_ch_tunnel_door_01_r"_J;
+				YimMenu::DeleteObjectsByHash(tunnerdoorright);
+				Hash tunnerdoorleft = "ch_prop_ch_tunnel_door_01_l"_J;
+				YimMenu::DeleteObjectsByHash(tunnerdoorleft);
+			}
+		};
 		static SetCuts _DiamondCasinoHeistSetCuts{"diamondcasinoheistsetcuts", "Set Cuts", "Sets heist cut"};
 		static ForceReady _DiamondCasinoHeistForceReady{"diamondcasinoheistforceready", "Force Ready", "Forces all players to be ready"};
 		static Setup _DiamondCasinoHeistSetup{"diamondcasinoheistsetup", "Setup", "Sets up diamond casino heist"};
@@ -376,5 +437,8 @@ namespace YimMenu::Features
 		static SkipDrilling _DiamondCasinoHeistSkipDrilling{"diamondcasinoheistskipdrilling", "Skip Drilling", "Skips drilling process"};
 		static SoloMantrap _DiamondCasinoHeistSoloMantrap{"diamondcasinoheistsolomantrap", "Solo Mantrap", "Skips card swiping process"};
 		static InstantFinish _DiamondCasinoHeistInstantFinish{"diamondcasinoheistinstantfinish", "Instant Finish", "Instantly passes the heist"};
+		static RemoveCameras _DiamondCasinoHeistRemoveCameras{"diamondcasinoheistremovecameras", "Remove Cam", "Removes all cameras"};
+		static RemoveKeycard _DiamondCasinoHeistKeycard{"diamondcasinoheistkeycard", "Remove Keycard", "Removes keycard"};
+
 	}
 }

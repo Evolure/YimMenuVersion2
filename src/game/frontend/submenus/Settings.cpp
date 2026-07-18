@@ -63,8 +63,7 @@ namespace YimMenu::Submenus
 
 		// Players
 		uiStyle->AddItem(std::make_shared<ListCommandItem>("styleselector"_J));
-		uiStyle->AddItem(std::make_shared<BoolCommandItem>("menubgfireworks"_J));
-		//uiStyle->AddItem(std::make_shared<BoolCommandItem>("menubgsnow"_J));
+		uiStyle->AddItem(std::make_shared<BoolCommandItem>("menubgsnow"_J));
 
 		playerEsp->AddItem(std::make_shared<BoolCommandItem>("espdrawplayers"_J));
 		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<BoolCommandItem>("espdrawdeadplayers"_J)));
@@ -102,10 +101,13 @@ namespace YimMenu::Submenus
 
 		overlay->AddItem(std::make_shared<BoolCommandItem>("overlay"_J));
 		overlay->AddItem(std::make_shared<ConditionalItem>("overlay"_J, std::make_shared<BoolCommandItem>("overlayfps"_J)));
+		overlay->AddItem(std::make_shared<ConditionalItem>("overlay"_J, std::make_shared<ListCommandItem>("overlaypos"_J)));
+		overlay->AddItem(std::make_shared<ConditionalItem>("overlay"_J, std::make_shared<BoolCommandItem>("overlaylock"_J)));
+
 
 		chat->AddItem(std::make_shared<BoolCommandItem>("clearchat"_J));
 
-			//Editor
+		//Editor
 		theme->AddItem(std::make_shared<ImGuiItem>(theme::theme_editor));
 
 		game->AddItem(playerEsp);

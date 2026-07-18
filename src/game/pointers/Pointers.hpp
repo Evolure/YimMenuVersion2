@@ -1,4 +1,3 @@
-
 #pragma once
 #include <d3d12.h>
 #include <dxgi1_4.h>
@@ -6,7 +5,6 @@
 #include "types/script/scrNativeHandler.hpp"
 #include "types/rage/ObfVar.hpp"
 #include "core/memory/BytePatches.hpp"
-#include "types/player/CPlayerInfo.hpp"
 #include "../../types/rage/CViewport.hpp"
 
 namespace rage
@@ -176,7 +174,6 @@ namespace YimMenu
 		PVOID GetLabelTextInternal;
 		uint32_t* m_frame_count{};
 		BytePatch FrameLimiter_Patch; // Patch for frame limiter
-		eGameState* m_game_state{};
 		CGameDataHash* GameDataHash;
 		void** DLCManager;
 		PVOID GetDLCHash;
