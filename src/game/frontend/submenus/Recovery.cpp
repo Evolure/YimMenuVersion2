@@ -45,7 +45,6 @@ namespace YimMenu::Submenus
 
 
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("playallmissionssolo"_J));
-		generalGroup->AddItem(std::make_shared<BoolCommandItem>("businessoverlay"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("unlockgtaplus"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("overriderpmultiplier"_J));
 		generalGroup->AddItem(std::make_shared<ConditionalItem>("overriderpmultiplier"_J, std::make_shared<FloatCommandItem>("rpmultiplierinput"_J)));
@@ -54,7 +53,7 @@ namespace YimMenu::Submenus
 		generalGroup->AddItem(std::make_shared<CommandItem>("applyrp"_J));
 		generalGroup->AddItem(std::make_shared<CommandItem>("Rockstar_dev_tshirt"_J));
 		generalGroup->AddItem(std::make_shared<CommandItem>("Good_Behavior_Bonus"_J));
-		
+
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("freechangeappearance"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("nochangeappearancecooldown"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("allowgenderchange"_J));
@@ -74,6 +73,21 @@ namespace YimMenu::Submenus
 
 		businessGroup->AddItem(std::make_shared<ListCommandItem>("businesssafe"_J));
 		businessGroup->AddItem(std::make_shared<CommandItem>("claimsafeearnings"_J));
+
+	    businessGroup->AddItem(std::make_shared<BoolCommandItem>("businessoverlay"_J));
+		businessGroup->AddItem(std::make_shared<ConditionalItem>("businessoverlay"_J, std::make_shared<BoolCommandItem>("showwarehouse"_J)));
+		businessGroup->AddItem(std::make_shared<ConditionalItem>("businessoverlay"_J, std::make_shared<BoolCommandItem>("showhangar"_J)));
+		businessGroup->AddItem(std::make_shared<ConditionalItem>("businessoverlay"_J, std::make_shared<BoolCommandItem>("showbusinesses"_J)));
+		businessGroup->AddItem(std::make_shared<ConditionalItem>("businessoverlay"_J, std::make_shared<BoolCommandItem>("shownightclub"_J)));
+
+		businessGroup->AddItem(std::make_shared<CommandItem>("resupplybusiness"_J));
+		businessGroup->AddItem(std::make_shared<CommandItem>("hangerresupply"_J));
+		businessGroup->AddItem(std::make_shared<CommandItem>("warehouseresupply"_J));
+		businessGroup->AddItem(std::make_shared<CommandItem>("nightclubpopularity"_J));
+		businessGroup->AddItem(std::make_shared<CommandItem>("salvageyardpopularity"_J));
+		businessGroup->AddItem(std::make_shared<CommandItem>("moneyfrontheatremove"_J));
+		businessGroup->AddItem(std::make_shared<BoolCommandItem>("removeresupplycooldown"_J));
+		businessGroup->AddItem(std::make_shared<BoolCommandItem>("enforceeasiestmission"_J));
 
 		over_lay->AddItem(std::make_shared<BoolCommandItem>("businessoverlay"_J));
 		over_lay->AddItem(std::make_shared<ConditionalItem>("businessoverlay"_J, std::make_shared<BoolCommandItem>("showwarehouse"_J)));
@@ -192,7 +206,7 @@ namespace YimMenu::Submenus
 		instantfinish->AddItem(std::make_shared<CommandItem>("InstantSellBunkerStuff"_J));
 		instantfinish->AddItem(std::make_shared<CommandItem>("sellandbuyspecialcargo"_J));
 		instantfinish->AddItem(std::make_shared<CommandItem>("instantaircargosell"_J));
-		//instantfinish->AddItem(std::make_shared<CommandItem>("mcbusinesssellmissions"_J));
+		instantfinish->AddItem(std::make_shared<CommandItem>("mcbusinesssellmissions"_J));
 
 
 
