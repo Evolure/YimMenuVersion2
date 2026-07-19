@@ -144,7 +144,7 @@ namespace YimMenu
 				if (pushedFont)
 					ImGui::PopFont();
 			}
-
+		}
 			ImGui::End();
 		}
 	}
