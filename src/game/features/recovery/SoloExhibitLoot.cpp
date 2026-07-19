@@ -22,10 +22,7 @@ namespace YimMenu::Features
 
 		static void EnableTarget(int index)
 		{
-			const auto entry = ScriptGlobal(4980736)
-			                       .At(29174)
-			                       .At(index, 333);
-
+			const auto entry = ScriptGlobal(4980736).At(29174).At(index, 333);
 			entry.At(68).As<int&>()  = 0;
 			entry.At(143).As<int&>() = 0;
 		}
